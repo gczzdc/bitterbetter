@@ -4,8 +4,6 @@ import flask
 from ibu_prediction import bag_of_words_paragraph, best_predictor
 
 
-
-
 app = flask.Flask(__name__)
 
 @app.route('/')
@@ -19,16 +17,16 @@ def index():
 
 	elif flask.request.method == 'POST':
 
-		keywords['submission']=flask.request.form['submission']
-
+		submission=flask.request.form['submission']
+		keywords['submission']=submission
 		#clean submission for safety
 
 		try:
 			### update keywords
-				keywords['result_paragraph'] = bag_of_words_paragraph()
-				keywords['prediction'] = 35
+				keywords['result_paragraph'] = bag_of_words_paragraph(submission)
+				keywords['prediction'] = best_predictor(submission)
+				#should add abv and style
 		except Exception:
-			raise
 			### fix this error handling
 			keywords['error_message']= 'unknown error'
 			return (flask.render_template('get.html',**keywords))
