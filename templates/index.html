@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html>
-<title>Initial test</title>
+<title>BitterBetter</title>
 <head>
 <!-- <link rel = stylesheet type=text/css href=../static/style.css> -->
 <!-- {{resources}} -->
 </head>
 <body>
-{{text}}
+<div class = page>
+	<h3>BitterBetter</h3>
+	<div class="flex-container">
+		<div>
+			<div class="graph box" style = "min-height:280px">
+				<h4> 
+				<form id = 'choices' method='post' action='index'>
+					<p class="choice">
+					<label>
+						<textarea name="message" rows="10" cols="70">
+						</textarea>
+					</label>
+					</p>	
+					<p align=center>		
+					<input type='submit' value='Submit'/>
+					</p>
+				</form>	
+				</h4>
+			</div>
+		</div>
+		<div >
+			<div class="choice box" style = "min-height:280px">
+				<p>
+				{{result_paragraph}}
+				</p>
+				<p align=center>
+				{{prediction}}
+				</p>
+				<p align = center>
+				{{gradient_legend}}
+				</p>
+			</div>	 	
+		</div>
+	</div>
+</div>
+
 </body>
 </html>
