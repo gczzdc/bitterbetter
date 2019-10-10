@@ -21,13 +21,17 @@ def index():
 
 		keywords['submission']=flask.request.form['submission']
 
+		#clean submission for safety
+
 		try:
 			### update keywords
+				keywords['result_paragraph'] = bag_of_words_paragraph()
+				keywords['prediction'] = 35
 		except Exception:
 			### fix this error handling
 			keywords['error_message']= 'unknown error'
 			return (flask.render_template('get.html',**keywords))
-		return (flask.render_template('post.html'),**keywords)
+		return (flask.render_template('post.html',**keywords))
 
 
 if __name__ == '__main__':
