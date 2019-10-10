@@ -4,6 +4,8 @@ add numerical ibu prediction
 
 OTHER:
 add error handling
+clean form submission for safety
+add abv and style
 
 
 DESIGN:
