@@ -1,5 +1,3 @@
-
-
 PREDICTION:
 add bag of words paragraph
 add numerical ibu prediction
@@ -11,4 +9,7 @@ add error handling
 DESIGN:
 add css
 add static gradient
+
+MEDIUM TERM:
+move text for gradient out of graphic and into html
 change tooltips to (javascript?) box
