@@ -1,6 +1,9 @@
 import requests
 import pandas as pd
 import flask
+from ibu_prediction import bag_of_words_paragraph, best_predictor
+
+
 
 
 app = flask.Flask(__name__)
