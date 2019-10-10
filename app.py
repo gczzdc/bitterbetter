@@ -28,6 +28,7 @@ def index():
 				keywords['result_paragraph'] = bag_of_words_paragraph()
 				keywords['prediction'] = 35
 		except Exception:
+			raise
 			### fix this error handling
 			keywords['error_message']= 'unknown error'
 			return (flask.render_template('get.html',**keywords))
