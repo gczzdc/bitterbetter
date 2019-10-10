@@ -5,12 +5,12 @@ add numerical ibu prediction
 
 
 OTHER:
-add error handling
+fix error handling
 
 
 
 DESIGN:
-add css
+fix css
 add static gradient
 
 
