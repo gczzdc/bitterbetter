@@ -6,3 +6,6 @@ def bag_of_words_paragraph(text):
 
 def best_predictor(text, abv=None, style=None):
 	return 35
+
+def generate_gradient(gradient_name):
+	pass
