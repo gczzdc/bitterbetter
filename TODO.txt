@@ -1,0 +1,14 @@
+
+
+PREDICTION:
+add bag of words paragraph
+add numerical ibu prediction
+
+OTHER:
+add error handling
+
+
+DESIGN:
+add css
+add static gradient
+change tooltips to (javascript?) box
