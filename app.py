@@ -9,7 +9,7 @@ app = flask.Flask(__name__)
 @app.route('/index',methods=['GET','POST'])
 def index():
 	if flask.request.method in ['GET','POST']:
-		return (flask.render_template('index.html',{text:'Hello World'}))
+		return (flask.render_template('index.html',text='Hello World'))
 
 if __name__ == '__main__':
 	app.run(debug=True)
