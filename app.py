@@ -8,14 +8,20 @@ app = flask.Flask(__name__)
 @app.route('/')
 @app.route('/index',methods=['GET','POST'])
 def index():
-	default_keywords = {'result_paragraph': 'Hello World'}
+	keywords = {'submission': '',
+				'error_message': ''}
+
 	if flask.request.method =='GET':
-		return (flask.render_template('get.html',**default_keywords))
+		return (flask.render_template('get.html',**keywords))
+
 	elif flask.request.method == 'POST':
+
+		keywords['submission']=flask.request.form['submission']
+
 		try:
-			keywords={} 
+			### update keywords
 		except Exception:
-			keywords = default_keywords
+			### fix this error handling
 			keywords['error_message']= 'unknown error'
 			return (flask.render_template('get.html',**keywords))
 		return (flask.render_template('post.html'),**keywords)
