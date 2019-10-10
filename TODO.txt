@@ -1,12 +1,12 @@
 PREDICTION:
-add bag of words paragraph
+build feature_coef_dic
 add numerical ibu prediction
 
 
 
 OTHER:
 fix error handling
-
+test bag of words paragraph
 
 
 DESIGN:
