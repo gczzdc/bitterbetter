@@ -2,16 +2,21 @@ PREDICTION:
 add bag of words paragraph
 add numerical ibu prediction
 
+
+
 OTHER:
 add error handling
-clean form submission for safety
-add abv and style
+
 
 
 DESIGN:
 add css
 add static gradient
 
+
+
 MEDIUM TERM:
 move text for gradient out of graphic and into html
 change tooltips to (javascript?) box
+clean form submission for safety
+add abv and style
