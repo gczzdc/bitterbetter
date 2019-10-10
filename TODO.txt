@@ -11,7 +11,7 @@ fix error handling
 
 DESIGN:
 fix css
-add static gradient
+check colors on static gradient
 
 
 
