@@ -3,8 +3,65 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import cm
 from matplotlib import colors
+import json
+import pickle
+import copy
 
-feature_coef_dic = {}
+from sklearn.linear_model import Ridge
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn import base
+from sklearn.feature_extraction.text import TfidfVectorizer
+from custom_transformers import NumberDestroyer
+
+with open('weights.json','r') as f:
+	feature_coef_dic = json.load(f)
+#probably better to redo this from the fitted regressor
+
+# class NumberDestroyer(base.BaseEstimator, base.TransformerMixin):
+#     def __init__(self):
+#         pass
+   
+#     def fit(self, X, y=None):
+#         return self
+
+#     def transform(self, X):
+#         d= {str(a):'' for a in range(10)}
+#         X_copy = copy.copy(X)
+#         for k in d:
+#             X_copy = X_copy.str.replace(k,d[k])
+#         return (X_copy)
+
+
+tfidf_bigram_vectorizer = TfidfVectorizer(
+        strip_accents='unicode',
+        decode_error='ignore',
+        stop_words = 'english',
+        ngram_range=(1,2),
+        max_df = .85,
+        min_df = 5)
+
+
+text_bigram_pipe = Pipeline([
+    ('number_destroyer',NumberDestroyer()),
+    ('vectorizer',tfidf_bigram_vectorizer)])
+
+
+column_bigram_transformer = ColumnTransformer([
+    ('text_encoder',text_bigram_pipe,'text'),
+    ('style_encoder',OneHotEncoder(handle_unknown='ignore'),['style']),
+    ('abv_scaler',StandardScaler(),['abv',])
+    ])
+
+bigram_regressor = Pipeline([
+    ('preprocessing',column_bigram_transformer),
+    #('estimator',SGDRegressor(alpha=.0002, max_iter=30000))
+    ('estimator',Ridge(alpha=3))
+    ])
+
+with open('regressor.pickle','rb') as f:
+    fitted_regressor = pickle.load(f)
 
 #would be better if seismic were not hard-coded here and below but rather a global variable
 
@@ -67,8 +124,8 @@ def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
     return final
 
 
-def best_predictor(text, abv=None, style=None):
-	return 35
+def best_predictor(text, abv=5.2, style='IPA'):
+	return fitted_regressor.predict(pd.DataFrame([{'text': text,'abv': abv, 'style': style},]))
 
 def generate_gradient(gradient_name='seismic', with_text=True, filename = 'static/gradient.png'):
 	gradient = np.linspace(0, 1, 256)
