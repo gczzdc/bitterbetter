@@ -3,22 +3,11 @@ PREDICTION:
 
 
 OTHER:
-fix error handling
-fix bag of words paragraph
-fix format of bag_of_words paragraph
- 
-
-
-DESIGN:
-fix css
-	seismic sticking out with short text
-	typing centered in form
-
-check colors on static gradient
-
+add intro text
 
 
 MEDIUM TERM:
+fix error handling
 move text for gradient out of graphic and into html
 change tooltips to (javascript?) box
 clean form submission for safety
