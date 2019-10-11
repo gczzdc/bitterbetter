@@ -22,8 +22,8 @@ def index():
 
 		try:
 			### update keywords
-				keywords['result_paragraph'] = bag_of_words_paragraph(submission)
-				keywords['prediction'] = best_predictor(submission)
+				keywords['result_paragraph'] = flask.Markup(bag_of_words_paragraph(submission))
+				keywords['prediction'] = round(best_predictor(submission)[0],1)
 				#should add abv and style
 		except Exception:
 			raise
