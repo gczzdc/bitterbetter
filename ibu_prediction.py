@@ -6,6 +6,7 @@ from matplotlib import colors
 import json
 import pickle
 import copy
+import string
 
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -87,10 +88,14 @@ def build_colors_plt(text, feature_coef_dic):
                 ans_dic[word]={'hex_color':hex_col, 'coefficient':coef}
     return ans_dic
 
+def clean(s):
+    return s.translate(str.maketrans('', '', string.punctuation)).lower()
+
 
 def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
-    working_dic = build_colors_plt(text,feature_coef_dic)
-    words = text.split()
+    clean_text = clean(text)
+    working_dic = build_colors_plt(clean_text,feature_coef_dic)
+    words = clean_text.split()
     para = []
     style = []
     counter = 1
