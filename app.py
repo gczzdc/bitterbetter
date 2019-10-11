@@ -3,7 +3,6 @@ import pandas as pd
 import flask
 from ibu_prediction import bag_of_words_paragraph, best_predictor
 
-
 app = flask.Flask(__name__)
 
 @app.route('/')
@@ -27,6 +26,7 @@ def index():
 				keywords['prediction'] = best_predictor(submission)
 				#should add abv and style
 		except Exception:
+			raise
 			### fix this error handling
 			keywords['error_message']= 'unknown error'
 			return (flask.render_template('get.html',**keywords))
