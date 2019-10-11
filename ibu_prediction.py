@@ -63,9 +63,9 @@ bigram_regressor = Pipeline([
 with open('regressor.pickle','rb') as f:
     fitted_regressor = pickle.load(f)
 
-#would be better if seismic were not hard-coded here and below but rather a global variable
+#would be better if color map were not hard-coded here and below but rather a global variable
 
-def colors_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.seismic, cutoffs = [-6,6]):
+def colors_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.coolwarm, cutoffs = [-6,6]):
     norm = colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
     if coef < cutoffs[0] or coef > cutoffs[1]:
         normalized_coef = norm(coef)
@@ -127,7 +127,7 @@ def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
 def best_predictor(text, abv=5.2, style='IPA'):
 	return fitted_regressor.predict(pd.DataFrame([{'text': text,'abv': abv, 'style': style},]))
 
-def generate_gradient(gradient_name='seismic', with_text=True, filename = 'static/gradient.png'):
+def generate_gradient(gradient_name='coolwarm', with_text=True, filename = 'static/gradient.png'):
 	gradient = np.linspace(0, 1, 256)
 	gradient = np.vstack((gradient, gradient))
 
