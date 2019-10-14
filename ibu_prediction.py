@@ -10,6 +10,7 @@ import json
 import pickle
 import copy
 import string
+import unicodedata
 
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -92,10 +93,15 @@ def build_colors_plt(text, feature_coef_dic):
     return ans_dic
 
 def clean(s):
-    return s.translate(str.maketrans('', '', string.punctuation)).lower()
+    return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
 
 def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
+    '''
+    renders an html paragraph given a textual description
+
+    the input text here has not been verified and needs to be cleaned.
+    '''
     clean_text = clean(text)
     working_dic = build_colors_plt(clean_text,feature_coef_dic)
     words = clean_text.split()
