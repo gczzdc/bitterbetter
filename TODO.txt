@@ -3,7 +3,6 @@ PREDICTION:
 
 
 OTHER:
-add intro text
 
 
 MEDIUM TERM:
@@ -13,3 +12,4 @@ change tooltips to (javascript?) box
 clean form submission for safety
 add abv and style
 build feature_coef_dic from fitted regressor
+combine get and post boilerplate
