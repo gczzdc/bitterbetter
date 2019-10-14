@@ -13,12 +13,16 @@ table {
 
 .imgparent {
   width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img {
   display: block;
   width: 100%;
   height: auto;
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
 }
 
 table, th, td {
