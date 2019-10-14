@@ -1,7 +1,5 @@
-import requests
-import pandas as pd
 import flask
-from ibu_prediction import bag_of_words_paragraph, best_predictor
+from build_results_html import build_results_html
 
 app = flask.Flask(__name__)
 
@@ -11,26 +9,20 @@ def index():
 	keywords = {'submission': '',
 				'error_message': ''}
 
-	if flask.request.method =='GET':
-		return (flask.render_template('get.html',**keywords))
-
-	elif flask.request.method == 'POST':
-
+	if flask.request.method == 'POST':
 		submission=flask.request.form['submission']
 		keywords['submission']=submission
-		#clean submission for safety
+		#submission has not been cleaned or marked safe but flask will do that here for us
 
 		try:
-			### update keywords
-				keywords['result_paragraph'] = flask.Markup(bag_of_words_paragraph(submission))
-				keywords['prediction'] = round(best_predictor(submission)[0],1)
-				#should add abv and style
+			#submission is not safe and is being passed back as safe so this requires handling
+			keywords['full_results'] = flask.Markup(build_results_html(submission))
+			#should add abv and style
 		except Exception:
 			raise
 			### fix this error handling
 			keywords['error_message']= 'unknown error'
-			return (flask.render_template('get.html',**keywords))
-		return (flask.render_template('post.html',**keywords))
+	return (flask.render_template('index.html',**keywords))
 
 
 if __name__ == '__main__':
