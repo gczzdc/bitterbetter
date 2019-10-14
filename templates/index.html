@@ -16,7 +16,7 @@
 				<form id = 'choices' method='post' action='index'>
 					<p class="choice">
 					<label>
-						<textarea name="submission" rows="10" cols="70">{{submission}}</textarea>
+						<textarea name="submission" rows="10" cols="70" maxlength="10000">{{submission}}</textarea>
 					</label>
 					</p>	
 					<p align=center>		
@@ -26,23 +26,7 @@
 				</h4>
 			</div>
 		</div>
-		<div >
-			<div class="choice box" style = "min-height:280px">
-				<p>
-				{{result_paragraph}}
-				</p>
-				<p align=center>
-				Predicted IBU rating: <strong>{{prediction}}</strong>
-				</p>
-				<p>
-					
-				 <div class="imgparent">
-					 <img src = "../static/gradient.png" alt = "gradient legend">
-				
-				</div>
-			</p>
-			</div>	 	
-		</div>
+		{{full_results}}
 	</div>
 <p>
 	BitterBetter is a tool that predicts the bitterness of beers from textual descriptions of them. It also uses information about the alcohol content and style of beer (currently hard-coded to 5.5% and APA for demonstration purposes). 
@@ -72,6 +56,7 @@ This project was implemented in python. Specific technologies and packages used 
 </ul>
 </p>
 </div>
+
 
 </body>
 </html>
