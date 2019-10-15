@@ -169,7 +169,5 @@ def generate_gradient(gradient_name='coolwarm', with_text=True, filename = 'stat
 				transform=ax.transAxes) 
     
 	ax.set_axis_off()
-	# plt.show()
-
 	f =ax.get_figure()
-	f.savefig(filename, bbox_inches="tight", transparent=True)
+	f.savefig(filename, bbox_inches="tight", pad_inches=0, transparent=True)
