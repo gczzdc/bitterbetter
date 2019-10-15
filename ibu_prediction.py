@@ -143,7 +143,7 @@ def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
         style = 'Pale Ale - American / APA' #fix this later
     return fitted_regressor.predict(pd.DataFrame([{'text': text,'abv': abv, 'style': style},]))
 
-def generate_gradient(gradient_name='coolwarm', with_text=True, filename = 'static/gradient.png'):
+def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'static/gradient.png'):
 	gradient = np.linspace(0, 1, 256)
 	gradient = np.vstack((gradient, gradient))
 

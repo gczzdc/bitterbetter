@@ -15,12 +15,17 @@ table {
   width: 400px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 img {
   display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
   width: 100%;
   height: auto;
+  vertical-align: bottom;
   /*margin-left: auto;*/
   /*margin-right: auto;*/
 }
@@ -141,3 +146,13 @@ label {
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
+
+
+/*#textbox{}*/
+
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
