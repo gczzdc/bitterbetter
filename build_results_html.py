@@ -20,6 +20,21 @@ def build_results_html(submission,abv,style):
 	third_para = soup.new_tag('p')
 	third_para.append(soup.new_tag('div'))
 	third_para.div['class']='imgparent'
+	third_para.div.append(soup.new_tag('div'))
+	third_para.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
+	left_p = soup.new_tag('p')
+	left_p['class']='alignleft'
+	left_p['style']='background-color:purple;vertical-align:bottom;line-height:0px'
+	left_p.append('less bitter')
+
+	right_p = soup.new_tag('p')
+	right_p['class']='alignright'
+	right_p.append('more bitter')
+	
+	third_para.div.div.append(left_p)
+	third_para.div.div.append(right_p)
+
+
 	third_para.div.append(soup.new_tag('img'))
 	third_para.div.img['src']='../static/gradient.png'
 	third_para.div.img['alt']='gradient legend'
