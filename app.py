@@ -35,11 +35,13 @@ def index():
 
 		keywords['submission']=submission		
 
-		#submission has not been cleaned or marked safe but flask will do that here for us
 		abv = parse_abv(abv_text)
 		keywords['abv'] = str(abv)
 
 		parse_style(keywords, style)
+		#submission has not been cleaned or marked safe but flask will do that 
+		#for these three fields
+
 		#submission is not safe and is being passed back as safe so 
 		#the submission field requires handling
 		keywords['full_results'] = flask.Markup(build_results_html(submission, abv, style))
