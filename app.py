@@ -25,6 +25,7 @@ def index():
 			abv_text = flask.request.form['abv']
 		except KeyError:
 			abv_text = str(mean_abv)
+		
 		try:	
 			style = flask.request.form['style']
 		except KeyError:
@@ -91,6 +92,6 @@ style_list = ["not specified",
 			"Porter", 
 			"Stout", 
 			"Sour / Wild Beer"]
-			
+
 if __name__ == '__main__':
 	app.run(debug=True)
