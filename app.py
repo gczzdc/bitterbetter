@@ -39,15 +39,11 @@ def index():
 		abv = parse_abv(abv_text)
 		keywords['abv'] = str(abv)
 
-		try:
-			#submission is not safe and is being passed back as safe so this requires handling
-			keywords['full_results'] = flask.Markup(build_results_html(submission))
-			#should add abv and style
-		except Exception:
-			raise
-			### fix this error handling
-			keywords['error_message']= 'unknown error'
 		parse_style(keywords, style)
+		#submission is not safe and is being passed back as safe so 
+		#the submission field requires handling
+		keywords['full_results'] = flask.Markup(build_results_html(submission, abv, style))
+		
 	return (flask.render_template('index.html',**keywords))
 
 
