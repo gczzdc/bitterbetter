@@ -1,5 +1,6 @@
 import flask
 from build_results_html import build_results_html
+mean_abv = 5.0
 
 app = flask.Flask(__name__)
 
