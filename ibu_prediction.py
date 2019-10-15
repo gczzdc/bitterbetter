@@ -147,7 +147,7 @@ def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'sta
 	gradient = np.linspace(0, 1, 256)
 	gradient = np.vstack((gradient, gradient))
 
-	figh = 0.72
+	figh = 0.32
 	plt.figure(figsize=(6.4, figh))
 	ax=plt.gca()
 
