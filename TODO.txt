@@ -8,10 +8,13 @@ fix error handling logic
 
 FLASK BACKEND
 add abv and style
+fix meanabv
 
 ML BACKEND
 build feature_coef_dic from fitted regressor
 try word2vec
 try lemmatization
 try log weighting
-try lasso
+try lassoWISHLIST:
+WISHLIST:
+save common styles in a json file instead of hard coding them
