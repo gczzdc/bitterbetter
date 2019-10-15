@@ -49,5 +49,26 @@ def parse_abv(abv_text):
 	if isnan(abv_float) or isinf(abv_float):
 		abv_float = mean_abv
 	return str(abv_float)
+style_list = ["not specified", 
+			"Pale Ale - American / APA", 
+			"Belgian Ale - Pale / Golden", 
+			"Witbier / Belgian White Ale", 
+			"IPA - Hazy / NEIPA", 
+			"Weissbier - Hefeweizen", 
+			"IPA - Black/Brown/Cascadian Dark", 
+			"Blonde Ale / Golden Ale", 
+			"Brown Ale", 
+			"IIPA - Imperial / Double IPA", 
+			"IPA", 
+			"Red Ale / Intl Amber Ale", 
+			"Saison / Farmhouse / Grisette", 
+			"ISA - Session IPA", 
+			"Wheat Ale", 
+			"Stout - Milk / Sweet", 
+			"Stout - Imperial", 
+			"Pilsener / Pils / Pilsner", 
+			"Porter", 
+			"Stout", 
+			"Sour / Wild Beer"]
 if __name__ == '__main__':
 	app.run(debug=True)
