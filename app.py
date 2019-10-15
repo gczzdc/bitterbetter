@@ -61,6 +61,7 @@ def parse_style(keyword_dic, style):
 		selected_tag = selected_tag.replace(' ','_')
 		selected_tag = selected_tag.replace('/','_')
 		selected_tag = selected_tag.replace('-','_')
+		selected_tag = 'selected_'+selected_tag
 		keyword_dic['selected_not_specified']=''
 		keyword_dic[selected_tag]='selected="selected"'
 
