@@ -32,10 +32,11 @@ def index():
 
 
 		keywords['submission']=submission		
-		keywords['abv']=parse_abv(abv_text)
 		parse_style(keywords, style)
 
 		#submission has not been cleaned or marked safe but flask will do that here for us
+		abv = parse_abv(abv_text)
+		keywords['abv'] = str(abv)
 
 		try:
 			#submission is not safe and is being passed back as safe so this requires handling
@@ -55,7 +56,7 @@ def parse_abv(abv_text):
 		abv_float = mean_abv
 	if isnan(abv_float) or isinf(abv_float):
 		abv_float = mean_abv
-	return str(abv_float)
+	return abv_float
 
 
 def parse_style(keyword_dic, style):
