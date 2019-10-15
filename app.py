@@ -14,19 +14,23 @@ def index():
 				'selected_not_specified': 'selected="selected"'}
 
 	if flask.request.method == 'POST':
-		submission=flask.request.form['submission']
-		abv = flask.request.form['abv']
-		style = flask.request.form['style']
-		#do something to make sure these exist
+		try:
+			submission = flask.request.form['submission']
+		except KeyError:
+			submission = ''
+		try:
+			abv_text = flask.request.form['abv']
+		except KeyError:
+			abv_text = str(mean_abv)
+		try:	
+			style = flask.request.form['style']
+		except KeyError:
+			style = 'not specified'
 
-		keywords['submission']=submission
-		keywords['abv']=abv
-		keywords['selected_not_specified']=''
-		selected_tag = style
-		selected_tag = selected_tag.replace(' ','_')
-		selected_tag = selected_tag.replace('/','_')
-		selected_tag = selected_tag.replace('-','_')
-		keywords[selected_tag]='selected="selected"'
+
+		keywords['submission']=submission		
+		keywords['abv']=parse_abv(abv_text)
+		parse_style(keywords, style)
 
 		#submission has not been cleaned or marked safe but flask will do that here for us
 
