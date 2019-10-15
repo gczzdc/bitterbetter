@@ -87,5 +87,6 @@ style_list = ["not specified",
 			"Porter", 
 			"Stout", 
 			"Sour / Wild Beer"]
+			
 if __name__ == '__main__':
 	app.run(debug=True)
