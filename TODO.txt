@@ -3,9 +3,6 @@ move text for gradient out of graphic and into html
 change tooltips to (javascript?) box
 
 
-ERROR HANDLING
-fix error handling logic
-
 FLASK BACKEND
 fix meanabv
 
