@@ -7,11 +7,24 @@ app = flask.Flask(__name__)
 @app.route('/index',methods=['GET','POST'])
 def index():
 	keywords = {'submission': '',
-				'error_message': ''}
+				'error_message': '',
+				'selected_not_specified': 'selected="selected"'}
 
 	if flask.request.method == 'POST':
 		submission=flask.request.form['submission']
+		abv = flask.request.form['abv']
+		style = flask.request.form['style']
+		#do something to make sure these exist
+
 		keywords['submission']=submission
+		keywords['abv']=abv
+		keywords['selected_not_specified']=''
+		selected_tag = style
+		selected_tag = selected_tag.replace(' ','_')
+		selected_tag = selected_tag.replace('/','_')
+		selected_tag = selected_tag.replace('-','_')
+		keywords[selected_tag]='selected="selected"'
+
 		#submission has not been cleaned or marked safe but flask will do that here for us
 
 		try:
