@@ -5,6 +5,7 @@ change tooltips to (javascript?) box
 
 FLASK BACKEND
 fix meanabv
+deploy to heroku
 
 ML BACKEND
 build feature_coef_dic from fitted regressor
