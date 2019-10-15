@@ -151,8 +151,6 @@ def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'sta
 	plt.figure(figsize=(6.4, figh))
 	ax=plt.gca()
 
-    # axes[0].set_title(cmap_category + ' colormaps', fontsize=14)
-
 	ax.imshow(gradient, aspect='auto', cmap=plt.get_cmap(gradient_name))
 	if with_text:
 		ax.text(.2, 1.3, 'less bitter', 
