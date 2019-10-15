@@ -1,5 +1,7 @@
 import flask
 from build_results_html import build_results_html
+from math import isnan, isinf
+
 mean_abv = 5.0
 
 app = flask.Flask(__name__)
@@ -39,5 +41,13 @@ def index():
 	return (flask.render_template('index.html',**keywords))
 
 
+def parse_abv(abv_text):
+	try:
+		abv_float = float(abv_text)
+	except ValueError:
+		abv_float = mean_abv
+	if isnan(abv_float) or isinf(abv_float):
+		abv_float = mean_abv
+	return str(abv_float)
 if __name__ == '__main__':
 	app.run(debug=True)
