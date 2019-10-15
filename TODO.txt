@@ -1,5 +1,5 @@
 CSS / HTML
-move text for gradient out of graphic and into html
+move css out of html document
 change tooltips to (javascript?) box
 
 
