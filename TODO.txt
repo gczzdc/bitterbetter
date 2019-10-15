@@ -17,3 +17,4 @@ try combining random forest with regressor
 
 WISHLIST:
 save common styles in a json file instead of hard coding them
+clean CSS
