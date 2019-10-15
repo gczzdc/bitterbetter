@@ -49,6 +49,18 @@ def parse_abv(abv_text):
 	if isnan(abv_float) or isinf(abv_float):
 		abv_float = mean_abv
 	return str(abv_float)
+
+
+def parse_style(keyword_dic, style):
+	selected_tag = style
+	if style in style_list:
+		selected_tag = selected_tag.replace(' ','_')
+		selected_tag = selected_tag.replace('/','_')
+		selected_tag = selected_tag.replace('-','_')
+		keyword_dic['selected_not_specified']=''
+		keyword_dic[selected_tag]='selected="selected"'
+
+
 style_list = ["not specified", 
 			"Pale Ale - American / APA", 
 			"Belgian Ale - Pale / Golden", 
