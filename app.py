@@ -29,6 +29,8 @@ def index():
 			style = flask.request.form['style']
 		except KeyError:
 			style = 'not specified'
+		if style not in style_list:
+			style = 'not specified'
 
 
 		keywords['submission']=submission		
