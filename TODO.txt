@@ -7,7 +7,6 @@ ERROR HANDLING
 fix error handling logic
 
 FLASK BACKEND
-add abv and style
 fix meanabv
 
 ML BACKEND
