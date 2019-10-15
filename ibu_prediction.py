@@ -93,8 +93,6 @@ def build_colors_plt(text, feature_coef_dic):
     return ans_dic
 
 def clean(s):
-    if len(s)> 10000:
-        raise ValueError('Submission string too long')
     return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
 
