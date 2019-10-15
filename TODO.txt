@@ -1,15 +1,17 @@
-PREDICTION:
-
-
-
-OTHER:
-
-
-MEDIUM TERM:
-fix error handling
+CSS / HTML
 move text for gradient out of graphic and into html
 change tooltips to (javascript?) box
-clean form submission for safety
+
+
+ERROR HANDLING
+fix error handling logic
+
+FLASK BACKEND
 add abv and style
+
+ML BACKEND
 build feature_coef_dic from fitted regressor
-combine get and post boilerplate
+try word2vec
+try lemmatization
+try log weighting
+try lasso
