@@ -32,7 +32,6 @@ def index():
 
 
 		keywords['submission']=submission		
-		parse_style(keywords, style)
 
 		#submission has not been cleaned or marked safe but flask will do that here for us
 		abv = parse_abv(abv_text)
@@ -46,6 +45,7 @@ def index():
 			raise
 			### fix this error handling
 			keywords['error_message']= 'unknown error'
+		parse_style(keywords, style)
 	return (flask.render_template('index.html',**keywords))
 
 
