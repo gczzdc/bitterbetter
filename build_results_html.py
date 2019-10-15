@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from ibu_prediction import bag_of_words_paragraph, best_predictor
 
 
-def build_results_html(submission):
+def build_results_html(submission,abv,style):
 	soup = BeautifulSoup('','html.parser')
 	soup.append(soup.new_tag('div'))
 	soup.div.append(soup.new_tag('div'))
@@ -16,7 +16,7 @@ def build_results_html(submission):
 	second_para.append('Predicted IBU rating: ')
 	second_para.append(soup.new_tag('strong'))
 	#no verification of safety has been done for submission before passing it to best_predictor
-	second_para.strong.append(str(round(best_predictor(submission)[0],1)))
+	second_para.strong.append(str(round(best_predictor(submission, abv, style)[0],1)))
 	third_para = soup.new_tag('p')
 	third_para.append(soup.new_tag('div'))
 	third_para.div['class']='imgparent'
