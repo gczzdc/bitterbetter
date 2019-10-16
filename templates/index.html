@@ -64,31 +64,7 @@
 		{{full_results}}
 	</div>
 <p>
-	BitterBetter is a tool that predicts the bitterness of beers from textual descriptions of them. It also uses information about the alcohol content and style of beer (currently hard-coded to 5.5% and APA for demonstration purposes). 
-</p>
-<p>
-	The imagined use case is for brewers to make sure that their brand story is correctly calibrated to communicate the desired information about bitterness to the consumer.
-</p>
-<p>
-The data for this project was scraped from about 85000 beer entries from <a href="https://ratebeer.com">ratebeer.com</a>. Bitterness is estimated via the <a href = "https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">International Bittering Unit</a> or IBU scale, which measures the concentration of certain acids which arise during the brewing process. An IBU rating does not correspond precisely to perceived bitterness but has a high correlation with it.
-</p>
-
-<p>
-Under the hood, the models used are standard NLP tools: the words are tokenized and both individual words and bigrams are one-hot-encoded. A combination of linear regression with Ridge normalization and random forest ensembles are used to generate the predictions.
-</p>
-
-<p>
-The current results obtain modest but signficant improvemnents over a naive linear regression based only on the alcohol content and style.
-</p>
-<p>
-This project was implemented in python. Specific technologies and packages used in it included:
-<ul>
-	<li> Development: Jupyter, git</li>
-	<li> Scraping: selenium, BeautifulSoup, distributed computing (via DigitalOcean)</li>
-	<li> Munging: pandas</li>
-	<li> Model: sklearn</li>
-	<li> Presentation: Flask, Heroku, matplotlib, seaborn</li>
-</ul>
+<a href='about.html'>About</a>
 </p>
 </div>
 
