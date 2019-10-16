@@ -2,7 +2,7 @@ import flask
 from build_results_html import build_results_html
 from math import isnan, isinf
 
-mean_abv = 5.0
+median_abv = 6.0
 
 app = flask.Flask(__name__)
 
@@ -11,7 +11,8 @@ app = flask.Flask(__name__)
 def index():
 	keywords = {'submission': '',
 				'error_message': '',
-				'selected_not_specified': 'selected="selected"'}
+				'selected_not_specified': 'selected="selected"',
+				'abv': str(median_abv)}
 
 	if flask.request.method == 'POST':
 		try:
@@ -24,7 +25,7 @@ def index():
 		try:
 			abv_text = flask.request.form['abv']
 		except KeyError:
-			abv_text = str(mean_abv)
+			abv_text = str(median_abv)
 		
 		try:	
 			style = flask.request.form['style']
@@ -54,9 +55,9 @@ def parse_abv(abv_text):
 	try:
 		abv_float = float(abv_text)
 	except ValueError:
-		abv_float = mean_abv
+		abv_float = median_abv
 	if isnan(abv_float) or isinf(abv_float):
-		abv_float = mean_abv
+		abv_float = median_abv
 	return abv_float
 
 
