@@ -51,6 +51,12 @@ def index():
 	return (flask.render_template('index.html',**keywords))
 
 
+@app.route('/about.html',methods=['GET',])
+@app.route('/about',methods=['GET',])
+def about():
+	return flask.render_template('about.html')
+
+
 def parse_abv(abv_text):
 	try:
 		abv_float = float(abv_text)
