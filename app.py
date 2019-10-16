@@ -19,7 +19,7 @@ def index():
 		except KeyError:
 			submission = ''
 		if len(submission)> 10000:
-			submission = ''
+			submission = submission[:10000]
 
 		try:
 			abv_text = flask.request.form['abv']
