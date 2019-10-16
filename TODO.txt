@@ -1,20 +1,22 @@
 CSS / HTML
-move css out of html document
 change tooltips to (javascript?) box
-
+add high effect wordlist
+add examples section to intro
 
 FLASK BACKEND
-fix meanabv
 deploy to heroku
 
 ML BACKEND
-build feature_coef_dic from fitted regressor
 try word2vec
 try lemmatization
 try log weighting
-try lasso
-try combining random forest with regressor 
+build another regressor with no style
+
+BACKEND EVENTUAL
+overtune hyperparameters
+build feature_coef_dic from fully fitted regressor
 
 WISHLIST:
 save common styles in a json file instead of hard coding them
 clean CSS
+move css out of html document
