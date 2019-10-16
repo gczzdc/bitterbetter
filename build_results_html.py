@@ -24,7 +24,7 @@ def build_results_html(submission,abv,style):
 	third_para.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
 	left_p = soup.new_tag('p')
 	left_p['class']='alignleft'
-	left_p['style']='background-color:purple;vertical-align:bottom;line-height:0px'
+	left_p['style']='vertical-align:bottom;line-height:0px'
 	left_p.append('less bitter')
 
 	right_p = soup.new_tag('p')
