@@ -169,3 +169,10 @@ def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'sta
 	ax.set_axis_off()
 	f =ax.get_figure()
 	f.savefig(filename, bbox_inches="tight", pad_inches=0, transparent=True)
+
+def get_strongest_and_weakest(regressor=fitted_regressor, cutoffs=(-16.25,23)):
+    features = regressor.named_steps['preprocessing'].transformers_[0][1].named_steps['vectorizer'].get_feature_names()
+    coefs = regressor.named_steps['estimator'].coef_
+    weight_dic = {features[i]:coefs[i] for i in range(len(features))}
+    return sorted([(entry,weight_dic[entry]) for entry in weight_dic \
+        if not (cutoffs[0]< weight_dic[entry]< cutoffs[1])], key = lambda x : x[1])
