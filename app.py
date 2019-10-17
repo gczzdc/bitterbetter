@@ -1,5 +1,5 @@
 import flask
-from build_results_html import build_results_html
+from build_results_html import build_results_html, build_bitterness_tables
 from parsers import parse_abv, parse_style, median_abv
 
 
@@ -50,7 +50,9 @@ def index():
 @app.route('/about.html',methods=['GET',])
 @app.route('/about',methods=['GET',])
 def about():
-	return flask.render_template('about.html')
+	keywords={}
+	keywords['tables']=flask.Markup(build_bitterness_tables())
+	return flask.render_template('about.html',**keywords)
 
 if __name__ == '__main__':
 	app.run()
