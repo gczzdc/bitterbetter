@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from ibu_prediction import bag_of_words_paragraph, best_predictor
+from ibu_prediction import bag_of_words_paragraph, best_predictor, get_strongest_and_weakest
 
 
 def build_results_html(submission,abv,style):
@@ -57,3 +57,28 @@ def build_words_table(ordered_tuples):
 		this_row.append(weight)
 		tabular_data.table.append(this_row)
 	return (tabular_data)
+
+def build_bitterness_tables():
+	tuples = get_strongest_and_weakest()
+	bitter_tuples = (tup for tup in tuples[::-1] if tup[1] > 0)
+	nonbitter_tuples = (tup for tup in tuples if tup[1] < 0)
+	bitter_table = build_words_table(bitter_tuples)
+	nonbitter_table = build_words_table(nonbitter_tuples)
+
+	total_table = BeautifulSoup('','html.parser')
+	total_table.append(total_table.new_tag('div'))
+	total_table.div['style'] = "margin-left:auto; margin-right:auto; margin-top:20px; margin-bottom:20px; display: table; width:50%;"
+	total_table.div.append(total_table.new_tag('div'))
+	total_table.div.div['style']="display: table-row"
+	
+	bitter_cell = total_table.new_tag('div')
+	bitter_cell['style']="display: table-cell; width:20%"
+	bitter_cell.append(bitter_table)
+	total_table.div.div.append(bitter_cell)
+	
+	nonbitter_cell = total_table.new_tag('div')
+	nonbitter_cell['style']="display: table-cell; width:20%"
+	nonbitter_cell.append(nonbitter_table)
+	total_table.div.div.append(nonbitter_cell)
+
+	return total_table.prettify()
