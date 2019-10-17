@@ -1,15 +1,8 @@
 CSS / HTML
 change tooltips to (javascript?) box
-add high effect wordlist
-add examples section to intro
-
-FLASK BACKEND
-deploy to heroku
 
 ML BACKEND
 try word2vec
-try lemmatization
-try log weighting
 build another regressor with no style
 
 BACKEND EVENTUAL
