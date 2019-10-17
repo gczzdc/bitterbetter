@@ -43,3 +43,17 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(third_para)
 	return soup.prettify()
 
+def build_words_table(ordered_tuples):
+	tabular_data = BeautifulSoup('','html.parser')
+	tabular_data.append(tabular_data.new_tag('table'))
+	tabular_data.table.append(tabular_data.new_tag('tr'))
+	for tup in ordered_tuples:
+		this_row = tabular_data.new_tag('tr')
+		gram=tabular_data.new_tag('td')
+		gram.append(tup[0])
+		weight = tabular_data.new_tag('td')
+		weight.append(str(round(tup[1],1)))
+		this_row.append(gram)
+		this_row.append(weight)
+		tabular_data.table.append(this_row)
+	return (tabular_data)
