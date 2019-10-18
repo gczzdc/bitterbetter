@@ -114,28 +114,53 @@ def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
             para.append(' ')
         else:
             para.append('<span ')
+            
+            para.append('onmouseover="changeContent(\'desc')
+            para.append(str(counter))
+            para.append('\')"')
+
+            para.append('onmouseout="resetContent()"')
+
             para.append('class="tooltip"')
+
             para.append('style="background: ')
             para.append(working_dic[word]['hex_color'])
             para.append('"')
+
             para.append('>')
+
             para.append(word)
+
+            coef = working_dic[word]['coefficient']
+            if coef > 0:
+                coef_string = '+'+str(round(coef,1))
+            else:
+                coef_string = str(round(coef,1))
+
+
             para.append('<span ')
             para.append('class="tooltiptext" ')
             para.append('style="color: ')
             para.append(working_dic[word]['hex_color'])           
             para.append('"')
             para.append('>')
-            coef = working_dic[word]['coefficient']
-            if coef > 0:
-                para.append('+')    
-            para.append(str(int(coef)))
+            para.append(coef_string)
             para.append('</span >')
+
             para.append('</span >')
+
+            para.append('<input type="hidden" id="desc')
+            para.append(str(counter))
+            para.append('" value="')
+            para.append(coef_string)
+            para.append('">')
+
+
             para.append(' ')
             counter+=1
     final= ''.join(para)
     return final
+
 
 
 def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
