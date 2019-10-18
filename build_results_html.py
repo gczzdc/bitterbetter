@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from ibu_prediction import bag_of_words_paragraph, best_predictor, get_strongest_and_weakest
 
 
+
 def build_results_html(submission,abv,style):
 	soup = BeautifulSoup('','html.parser')
 	soup.append(soup.new_tag('div'))
@@ -17,11 +18,23 @@ def build_results_html(submission,abv,style):
 	second_para.append(soup.new_tag('strong'))
 	#no verification of safety has been done for submission before passing it to best_predictor
 	second_para.strong.append(str(round(best_predictor(submission, abv, style)[0],1)))
-	third_para = soup.new_tag('p')
-	third_para.append(soup.new_tag('div'))
-	third_para.div['class']='imgparent'
-	third_para.div.append(soup.new_tag('div'))
-	third_para.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
+
+
+	third_para=soup.new_tag('p')
+	third_para['align']='center'
+	content_tag = soup.new_tag('span')
+	content_tag['id']='content'
+	content_tag['style']='display:inline-block; width:30px'
+	third_para.append('Contribution from selected word: ')
+	third_para.append(soup.new_tag('strong'))
+	third_para.strong.append(content_tag)
+
+
+	fourth_para = soup.new_tag('p')
+	fourth_para.append(soup.new_tag('div'))
+	fourth_para.div['class']='imgparent'
+	fourth_para.div.append(soup.new_tag('div'))
+	fourth_para.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
 	left_p = soup.new_tag('p')
 	left_p['class']='alignleft'
 	left_p['style']='vertical-align:bottom;line-height:0px'
@@ -31,17 +44,20 @@ def build_results_html(submission,abv,style):
 	right_p['class']='alignright'
 	right_p.append('more bitter')
 	
-	third_para.div.div.append(left_p)
-	third_para.div.div.append(right_p)
+	fourth_para.div.div.append(left_p)
+	fourth_para.div.div.append(right_p)
 
 
-	third_para.div.append(soup.new_tag('img'))
-	third_para.div.img['src']='../static/gradient.png'
-	third_para.div.img['alt']='gradient legend'
+	fourth_para.div.append(soup.new_tag('img'))
+	fourth_para.div.img['src']='../static/gradient.png'
+	fourth_para.div.img['alt']='gradient legend'
+
+
 	soup.div.div.append(first_para)
 	soup.div.div.append(second_para)
 	soup.div.div.append(third_para)
 	return soup.prettify()
+	soup.div.div.append(fourth_para)
 
 def build_words_table(ordered_tuples):
 	tabular_data = BeautifulSoup('','html.parser')
