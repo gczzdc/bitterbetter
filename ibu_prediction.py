@@ -173,8 +173,8 @@ def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
 
 def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
     if style == 'not specified':
-    return fitted_regressor.predict(pd.DataFrame([{'text': text,'abv': abv, 'style': style},]))
         return fitted_no_style_regressor.predict(pd.DataFrame([{'style': style, 'abv': abv,'text': text},]))
+    return fitted_regressor.predict(pd.DataFrame([{'style': style, 'abv': abv,'text': text },]))
 
 def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'static/gradient.png'):
 	gradient = np.linspace(0, 1, 256)
