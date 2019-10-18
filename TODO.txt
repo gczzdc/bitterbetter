@@ -3,11 +3,10 @@ consider removing tooltips
 
 ML BACKEND
 try word2vec
-build another regressor with no style
 
 BACKEND EVENTUAL
-overtune hyperparameters
-build feature_coef_dic from fully fitted regressor
+overtune hyperparameters for two built-in models
+build feature_coef_dic dynamically from fully fitted regressor
 
 FRONTEND EVENTUAL
 redo ibu_prediction html generation using beautifulsoup
