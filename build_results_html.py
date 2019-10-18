@@ -56,8 +56,8 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(first_para)
 	soup.div.div.append(second_para)
 	soup.div.div.append(third_para)
-	return soup.prettify()
 	soup.div.div.append(fourth_para)
+	return str(soup)
 
 def build_words_table(ordered_tuples):
 	tabular_data = BeautifulSoup('','html.parser')
