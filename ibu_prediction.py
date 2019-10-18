@@ -106,7 +106,7 @@ def clean(s):
 
 def bag_of_words_paragraph(text,features_coef_file=feature_coef_file):
     # with open(feature_coef_file,'r') as f:
-    feature_coef_dic = json.load(f)
+    feature_coef_dic = json.load(feature_coef_file)
     '''
     renders an html paragraph given a textual description
 
