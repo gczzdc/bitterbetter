@@ -59,6 +59,11 @@ column_bigram_transformer = ColumnTransformer([
     ('abv_scaler',StandardScaler(),['abv',])
     ])
 
+no_style_column_transformer = ColumnTransformer([
+    ('text_encoder',text_bigram_pipe,'text'),
+    ('abv_scaler',StandardScaler(),['abv',])
+    ])
+
 bigram_regressor = Pipeline([
     ('preprocessing',column_bigram_transformer),
     #('estimator',SGDRegressor(alpha=.0002, max_iter=30000))
@@ -67,6 +72,9 @@ bigram_regressor = Pipeline([
 
 with open('regressor.pickle','rb') as f:
     fitted_regressor = pickle.load(f)
+
+with open('no_style_regressor.pickle','rb') as f:
+    fitted_no_style_regressor = pickle.load(f)
 
 #would be better if color map were not hard-coded here and below but rather a global variable
 
@@ -165,8 +173,8 @@ def bag_of_words_paragraph(text,features_coef_dic=feature_coef_dic):
 
 def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
     if style == 'not specified':
-        style = 'Pale Ale - American / APA' #fix this later
     return fitted_regressor.predict(pd.DataFrame([{'text': text,'abv': abv, 'style': style},]))
+        return fitted_no_style_regressor.predict(pd.DataFrame([{'style': style, 'abv': abv,'text': text},]))
 
 def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'static/gradient.png'):
 	gradient = np.linspace(0, 1, 256)
