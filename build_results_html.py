@@ -25,7 +25,7 @@ def build_results_html(submission,abv,style):
 	content_tag = soup.new_tag('span')
 	content_tag['id']='content'
 	content_tag['style']='display:inline-block; width:30px'
-	third_para.append('Contribution from selected word: ')
+	third_para.append('Approximate (relative) contribution from selected word: ')
 	third_para.append(soup.new_tag('strong'))
 	third_para.strong.append(content_tag)
 
