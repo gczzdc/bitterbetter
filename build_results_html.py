@@ -6,6 +6,7 @@ from ibu_prediction import bag_of_words_paragraph, best_predictor, get_strongest
 def build_results_html(submission,abv,style):
 	soup = BeautifulSoup('','html.parser')
 	soup.append(soup.new_tag('div'))
+	soup.div['style']='margin: 1em auto'
 	soup.div.append(soup.new_tag('div'))
 	soup.div.div['class']= 'choice box'
 	soup.div.div['style']= 'min-height:280px'
