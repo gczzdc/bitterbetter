@@ -146,16 +146,6 @@ def bag_of_words_paragraph(text,feature_coef_file=feature_coef_file):
             else:
                 coef_string = str(round(coef,1))
 
-
-            para.append('<span ')
-            para.append('class="tooltiptext" ')
-            para.append('style="color: ')
-            para.append(working_dic[word]['hex_color'])           
-            para.append('"')
-            para.append('>')
-            para.append(coef_string)
-            para.append('</span >')
-
             para.append('</span >')
 
             para.append('<input type="hidden" id="desc')
