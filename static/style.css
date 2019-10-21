@@ -5,6 +5,23 @@ body
   background-size: 500px;
 }
 
+h2,h3,h4				
+{
+  text-align: center;
+  margin: 15px;
+}
+
+.button { 
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  outline: none;
+}
+
 /*for dropdowns*/
 
 details summary::-webkit-details-marker {
@@ -14,6 +31,10 @@ details summary::-webkit-details-marker {
 details > summary:first-of-type {
     list-style-type: none;
 }
+summary:focus{
+  outline:0;
+}
+
 .credit{
   text-align: right;
   font-size: 9px;
