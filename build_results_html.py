@@ -8,11 +8,17 @@ def build_results_html(submission,abv,style):
 	soup.append(soup.new_tag('div'))
 	soup.div['style']='margin: 1em auto'
 	soup.div.append(soup.new_tag('div'))
-	soup.div.div['class']= 'choice box'
-	soup.div.div['style']= 'min-height:280px'
-	first_para = soup.new_tag('p')
+	soup.div.div['class']= 'box'
+
+	soup.div.div.append(soup.new_tag('h4'))
+	soup.div.div.h4.append('Results')
+	
+	first_para = soup.new_tag('div')
+	first_para['style']='text-align: left'
+	first_para.append(soup.new_tag('p'))
+	first_para.p.append(BeautifulSoup(bag_of_words_paragraph(submission),'html.parser'))
 	#no verification of safety has been done for submission before passing it to bag_of_words_paragraph
-	first_para.append(BeautifulSoup(bag_of_words_paragraph(submission),'html.parser'))
+
 	second_para = soup.new_tag('p')
 	second_para['align']='center'
 	second_para.append('Predicted IBU rating: ')
@@ -58,7 +64,7 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(second_para)
 	soup.div.div.append(third_para)
 	soup.div.div.append(fourth_para)
-	return str(soup)
+	return str(soup.div)
 
 def build_words_table(ordered_tuples):
 	tabular_data = BeautifulSoup('','html.parser')
