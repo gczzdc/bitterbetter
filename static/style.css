@@ -117,6 +117,7 @@ label {
 
 
 .box        { 
+  display:inline-block;
 	font-size: 0.8em; 
 	line-height:30px;
   border: 2px solid #ccc;
@@ -128,6 +129,9 @@ label {
 
 
 
+.centered{ 
+	text-align: center; 
+  min-height: 100px;
 }
 
 
