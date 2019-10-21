@@ -10,6 +10,8 @@ body
   background-size: 500px;
 }
 
+/*for dropdowns*/
+
 details summary::-webkit-details-marker {
   display:none;
 }
@@ -161,7 +163,7 @@ label {
 .error          { background: #F0D6D6; padding: 0.5em; }
 
 
-/*#textbox{}*/
+/*display options */
 
 .alignleft {
   float: left;
