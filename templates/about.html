@@ -82,15 +82,21 @@ Consider the marketing copy for the following two beers.
 Beer bitterness is estimated via the <a href = "https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">International Bittering Unit</a> or IBU scale, which measures the concentration of certain acids which arise during the brewing process. An IBU rating does not correspond precisely to perceived bitterness but has a high correlation with it.
 </p>
 <p>
-BitterBetter uses natural language processing methods to predict the IBU rating of beers.
 The data for this project obtained from <a href="https://ratebeer.com">ratebeer.com</a> using a custom-built distributed scraper. The database includes over 600,000 beer entries  of which about 85,000 were usable. 
-Under the hood, the models used for prediction are standard NLP tools: the words are tokenized and both individual words and bigrams are one-hot-encoded. A combination of linear regression with ridge and lasso normalization and random forest ensembles are used to generate the predictions.
 </p>
 <p>
-The current results obtain modest but signficant improvements over a naive linear regression based only on the alcohol content and style.
+BitterBetter uses natural language processing methods to predict the IBU rating of beers.
+Words are tokenized and both individual words and bigrams are one-hot-encoded. 
+A combination of linear regression with ridge and lasso normalization and random forest ensembles are used to generate the predictions.
 </p>
-Some of the individual words and bigrams with the strongest contributions to the model are as follows:
+<p>
+The median absolute error is around 6.75 on a validation set. 
+This is pretty good resolution, as IBU differences at that scale are overshadowed by other flavor components.
+</p>
+<p>
+	Some of the individual words and bigrams with the strongest contributions to the model are as follows:
 {{tables}}
+</p>
 </details>
 <p>
 This project was implemented in <a href="https://python.org">python</a>. Specific technologies and packages used in it included:
