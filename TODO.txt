@@ -1,5 +1,4 @@
 CSS / HTML
-consider removing tooltips
 
 ML BACKEND
 try word2vec
