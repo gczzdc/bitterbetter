@@ -1,4 +1,5 @@
 CSS / HTML
+maybe make random link?
 
 ML BACKEND
 try word2vec
