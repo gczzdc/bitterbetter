@@ -83,6 +83,8 @@ img {
   vertical-align: bottom;
 }
 
+.page           { margin: 2em auto; width: 38em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; column-span: 1}
 
 label {
     margin-bottom: 20px;
@@ -106,8 +108,6 @@ label {
   /*font-size: 30px;*/
 }
 
-.page           { margin: 2em auto; width: 75em; border: 5px solid #ccc;
-                  padding: 0.8em; background: white; column-span: 1}
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; }
 .entries li h2  { margin-left: -1em; }
