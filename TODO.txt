@@ -1,7 +1,9 @@
 CSS / HTML
 maybe make random link?
+fix get post link for examples
 
 ML BACKEND
+make distribution plot for style with marker
 try word2vec
 
 BACKEND EVENTUAL
