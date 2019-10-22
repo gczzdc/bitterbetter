@@ -2,6 +2,7 @@ import flask
 from build_results_html import build_results_html, build_bitterness_tables
 from parsers import parse_abv, parse_style, median_abv
 
+defined_examples = range(10,16)
 
 app = flask.Flask(__name__)
 
@@ -43,7 +44,15 @@ def index():
 		#submission is not safe and is being passed back as safe so 
 		#the submission field requires handling
 		keywords['full_results'] = flask.Markup(build_results_html(submission, abv, style))
-		
+	elif flask.request.method==	'GET':
+		example_number = flask.request.args.get('example',None, type=int)
+		if example_number in defined_examples:
+			with open('static/example_{}'.format(example_number)) as f:
+				example_data = f.read()
+			example_lines = example_data.split('\n')
+			keywords['abv'] = example_lines[0]
+			keywords['submission'] = '\n'.join(example_lines[2:])
+			parse_style(keywords, example_lines[1])
 	return (flask.render_template('index.html',**keywords))
 
 
