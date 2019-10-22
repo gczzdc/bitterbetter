@@ -64,7 +64,12 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(second_para)
 	soup.div.div.append(third_para)
 	soup.div.div.append(fourth_para)
-	return str(soup.div)
+	intermezzo = soup.new_tag('div')
+	intermezzo['style']='margin-left:auto; margin-right:auto;font-size: 0.8em;'
+	intermezzo.append(soup.new_tag('p'))
+	intermezzo.p.append('Try changing your description!')
+	soup.append(intermezzo)
+	return str(soup)
 
 def build_words_table(ordered_tuples):
 	tabular_data = BeautifulSoup('','html.parser')
