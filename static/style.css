@@ -120,6 +120,7 @@ label {
 
 
 .box        { 
+  min-width: 450px;
   display:inline-block;
 	font-size: 0.8em; 
 	line-height:30px;
