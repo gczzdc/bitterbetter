@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib
-import matplotlib
 matplotlib.use("Agg")
 from matplotlib import pyplot as plt
 from matplotlib import cm
