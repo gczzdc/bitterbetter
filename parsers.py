@@ -49,3 +49,9 @@ def encode_style(style):
 	tag = tag.replace('/','_')
 	tag = tag.replace('-','_')
 	return tag
+
+def decode_parsed_style(parsed_style):
+	for style in style_list:
+		if encode_style(style)==parsed_style:
+			return style
+	return 'not specified'
