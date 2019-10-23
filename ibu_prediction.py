@@ -5,11 +5,17 @@ matplotlib.use("Agg")
 from matplotlib import pyplot as plt
 from matplotlib import cm
 from matplotlib import colors
+import seaborn as sns
 import json
 import pickle
 import copy
 import string
 import unicodedata
+
+
+
+import io
+
 
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -204,3 +210,22 @@ def get_strongest_and_weakest(regressor_file=regressor_file, cutoffs=(-16.25,23)
     weight_dic = {features[i]:coefs[i] for i in range(len(features))}
     return sorted([(entry,weight_dic[entry]) for entry in weight_dic \
         if not (cutoffs[0]< weight_dic[entry]< cutoffs[1])], key = lambda x : x[1])
+
+def build_distplot_with_line(style, xval, bins=40, linewidth=3):
+    plt.clf()
+
+    ibu_style_df = pd.read_csv('ibu_style_df.csv')
+    if style != 'not specified':
+        ibu_style_df = ibu_style_df[ibu_style_df['style']==style]
+    dist = sns.distplot(ibu_style_df['ibu'], bins=40, label='style distribution')
+    vline = dist.axvline(x=xval, linewidth=linewidth, color='black', label='predicted IBU')
+    dist.set(yticks=[])
+    dist.legend()
+    fig = dist.get_figure()
+    fig.set_size_inches(8,2)
+
+    img = io.BytesIO()
+    fig.savefig(img, format='png', transparent=True)
+    img.seek(0)
+    return img
+
