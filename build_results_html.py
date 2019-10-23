@@ -71,7 +71,7 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(distribution)
 	soup.div.div.append(gradient)
 	intermezzo = soup.new_tag('div')
-	intermezzo['style']='margin-left:auto; margin-right:auto;font-size: 0.8em;'
+	intermezzo['style']='margin-left:auto; margin-right:auto;'
 	intermezzo.append(soup.new_tag('p'))
 	intermezzo.p.append('Try changing your description!')
 	soup.append(intermezzo)
