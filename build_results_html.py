@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 from ibu_prediction import bag_of_words_paragraph, best_predictor, get_strongest_and_weakest
 
-
-
 def build_results_html(submission,abv,style):
 	soup = BeautifulSoup('','html.parser')
 	soup.append(soup.new_tag('div'))
@@ -111,3 +109,5 @@ def build_bitterness_tables():
 	total_table.div.div.append(nonbitter_cell)
 
 	return total_table.prettify()
+
+
