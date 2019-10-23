@@ -13,35 +13,36 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(soup.new_tag('h4'))
 	soup.div.div.h4.append('Results')
 	
-	first_para = soup.new_tag('div')
-	first_para['style']='text-align: left'
-	first_para.append(soup.new_tag('p'))
-	first_para.p.append(BeautifulSoup(bag_of_words_paragraph(submission),'html.parser'))
+	para = soup.new_tag('div')
+	para['style']='text-align: left'
+	para.append(soup.new_tag('p'))
+	para.p.append(BeautifulSoup(bag_of_words_paragraph(submission),'html.parser'))
 	#no verification of safety has been done for submission before passing it to bag_of_words_paragraph
 
-	second_para = soup.new_tag('p')
-	second_para['align']='center'
-	second_para.append('Predicted IBU rating: ')
-	second_para.append(soup.new_tag('strong'))
+	prediction = best_predictor(submission, abv, style)[0]
+
+	predict_line = soup.new_tag('p')
+	predict_line['align']='center'
+	predict_line.append('Predicted IBU rating: ')
+	predict_line.append(soup.new_tag('strong'))
 	#no verification of safety has been done for submission before passing it to best_predictor
-	second_para.strong.append(str(round(best_predictor(submission, abv, style)[0],1)))
+	predict_line.strong.append(str(round(prediction,1)))
 
 
-	third_para=soup.new_tag('p')
-	third_para['align']='center'
+	contribution=soup.new_tag('p')
+	contribution['align']='center'
 	content_tag = soup.new_tag('span')
 	content_tag['id']='content'
 	content_tag['style']='display:inline-block; width:30px'
-	third_para.append('Approximate (relative) contribution from selected word: ')
-	third_para.append(soup.new_tag('strong'))
-	third_para.strong.append(content_tag)
+	contribution.append('Approximate (relative) contribution from selected word: ')
+	contribution.append(soup.new_tag('strong'))
+	contribution.strong.append(content_tag)
 
-
-	fourth_para = soup.new_tag('p')
-	fourth_para.append(soup.new_tag('div'))
-	fourth_para.div['class']='imgparent'
-	fourth_para.div.append(soup.new_tag('div'))
-	fourth_para.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
+	gradient = soup.new_tag('p')
+	gradient.append(soup.new_tag('div'))
+	gradient.div['class']='imgparent'
+	gradient.div.append(soup.new_tag('div'))
+	gradient.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
 	left_p = soup.new_tag('p')
 	left_p['class']='alignleft'
 	left_p['style']='vertical-align:bottom;line-height:0px'
@@ -51,19 +52,19 @@ def build_results_html(submission,abv,style):
 	right_p['class']='alignright'
 	right_p.append('more bitter')
 	
-	fourth_para.div.div.append(left_p)
-	fourth_para.div.div.append(right_p)
+	gradient.div.div.append(left_p)
+	gradient.div.div.append(right_p)
 
 
-	fourth_para.div.append(soup.new_tag('img'))
-	fourth_para.div.img['src']='../static/gradient.png'
-	fourth_para.div.img['alt']='gradient legend'
+	gradient.div.append(soup.new_tag('img'))
+	gradient.div.img['src']='../static/gradient.png'
+	gradient.div.img['alt']='gradient legend'
 
 
-	soup.div.div.append(first_para)
-	soup.div.div.append(second_para)
-	soup.div.div.append(third_para)
-	soup.div.div.append(fourth_para)
+	soup.div.div.append(para)
+	soup.div.div.append(predict_line)
+	soup.div.div.append(contribution)
+	soup.div.div.append(gradient)
 	intermezzo = soup.new_tag('div')
 	intermezzo['style']='margin-left:auto; margin-right:auto;font-size: 0.8em;'
 	intermezzo.append(soup.new_tag('p'))
