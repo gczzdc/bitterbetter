@@ -35,13 +35,17 @@ def parse_abv(abv_text):
 
 
 def parse_style(keyword_dic, style):
-	selected_tag = style
 	if style in style_list:
-		selected_tag = selected_tag.replace(' ','_')
-		selected_tag = selected_tag.replace('/','_')
-		selected_tag = selected_tag.replace('-','_')
+		selected_tag = encode_style(style)
 		selected_tag = 'selected_'+selected_tag
 		keyword_dic['selected_not_specified']=''
 		keyword_dic[selected_tag]='selected="selected"'
 	else:
 		style = 'not specified'
+
+def encode_style(style):
+	tag=style
+	tag = tag.replace(' ','_')
+	tag = tag.replace('/','_')
+	tag = tag.replace('-','_')
+	return tag
