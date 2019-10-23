@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 from ibu_prediction import bag_of_words_paragraph, best_predictor, get_strongest_and_weakest
+from parsers import encode_style
+   
 
 def build_results_html(submission,abv,style):
 	soup = BeautifulSoup('','html.parser')
@@ -36,6 +38,10 @@ def build_results_html(submission,abv,style):
 	contribution.append(soup.new_tag('strong'))
 	contribution.strong.append(content_tag)
 
+	distribution = soup.new_tag('p')
+	distribution.append(soup.new_tag('img'))
+	distribution.img['src']='dist_{}--{}.png'.format(encode_style(style),prediction)
+
 	gradient = soup.new_tag('p')
 	gradient.append(soup.new_tag('div'))
 	gradient.div['class']='imgparent'
@@ -62,6 +68,7 @@ def build_results_html(submission,abv,style):
 	soup.div.div.append(para)
 	soup.div.div.append(predict_line)
 	soup.div.div.append(contribution)
+	soup.div.div.append(distribution)
 	soup.div.div.append(gradient)
 	intermezzo = soup.new_tag('div')
 	intermezzo['style']='margin-left:auto; margin-right:auto;font-size: 0.8em;'
