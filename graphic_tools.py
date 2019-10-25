@@ -23,18 +23,6 @@ def color_from_coef(coef, vmin = -40, vmax = 40, cmap = colormap, cutoffs = [-6,
         return False
 
 
-def build_colors_plt(text, feature_coef_dic):
-    words = text.split()
-    ans_dic ={}    
-    for word in words:
-        if word in feature_coef_dic:
-            coef = feature_coef_dic[word]
-            hex_col = colors_from_coef(coef)
-            if hex_col:
-                ans_dic[word]={'hex_color':hex_col, 'coefficient':coef}
-    return ans_dic
-
-
 
 def build_distplot_with_line(style, xval, bins=40, linewidth=3):
     plt.clf()
