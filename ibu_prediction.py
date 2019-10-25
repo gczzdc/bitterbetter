@@ -97,39 +97,8 @@ def build_strength_dic(text, feature_coef_file=feature_coef_file):
         feature_coef_dic = json.load(f)
 
     clean_text = clean(text)
-            para.append('\')"')
-
-            para.append('onmouseout="resetContent()"')
-
-            para.append('class="tooltip"')
-
-            para.append('style="background: ')
-            para.append(working_dic[word]['hex_color'])
-            para.append('"')
-
-            para.append('>')
-
-            para.append(word)
-
-            coef = working_dic[word]['coefficient']
-            if coef > 0:
-                coef_string = '+'+str(round(coef,1))
-            else:
-                coef_string = str(round(coef,1))
-
-            para.append('</span >')
-
-            para.append('<input type="hidden" id="desc')
-            para.append(str(counter))
-            para.append('" value="')
-            para.append(coef_string)
-            para.append('">')
-
-
-            para.append(' ')
-            counter+=1
-    final= ''.join(para)
-    return final
+    strength_dic = build_colors_plt(clean_text,feature_coef_dic)
+    return strength_dic
 
 
 def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
