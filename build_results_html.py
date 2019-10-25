@@ -1,7 +1,48 @@
 from bs4 import BeautifulSoup
-from ibu_prediction import bag_of_words_paragraph, best_predictor, get_strongest_and_weakest
+from ibu_prediction import best_predictor, get_strongest_and_weakest, build_strength_dic
 from parsers import encode_style
+import unicodedata
    
+
+def clean(s):
+    return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
+
+def bag_of_words_paragraph(text, strength_dic):
+    clean_text = clean(text)
+    words = clean_text.split()
+    style = []
+    counter = 1
+    soup = BeautifulSoup('<p></p>','html.parser')
+    for word in words:
+        if word not in strength_dic:
+            soup.append(word)
+            soup.append(' ')
+        else:
+            this_word = soup.new_tag('span')
+            this_word['onmouseover']="changeContent('desc"+str(counter)+"')"
+            this_word['onmouseout']='resetContent()'
+            this_word['style']='background: '+strength_dic[word]['hex_color']
+            this_word.append(word)
+            soup.append(this_word)
+
+            coef = strength_dic[word]['coefficient']
+            if coef > 0:
+                coef_string = '+'+str(round(coef,1))
+            else:
+                coef_string = str(round(coef,1))
+
+            hidden_val = soup.new_tag('input')
+            hidden_val['type']='hidden'
+            hidden_val['id']='desc'+str(counter)
+            hidden_val['value']=coef_string
+
+            soup.append(hidden_val)
+            soup.append(' ')
+
+            counter+=1
+    return soup
+
+
 
 def build_results_html(submission,abv,style):
 	soup = BeautifulSoup('','html.parser')
@@ -15,8 +56,12 @@ def build_results_html(submission,abv,style):
 	
 	para = soup.new_tag('div')
 	para['style']='text-align: left'
-	para.append(soup.new_tag('p'))
-	para.p.append(BeautifulSoup(bag_of_words_paragraph(submission),'html.parser'))
+
+	# para.append(soup.new_tag('p'))
+	strength_dic = build_strength_dic(submission)
+	para.append(bag_of_words_paragraph(submission, strength_dic))
+
+	# .p.append(BeautifulSoup(,'html.parser'))
 	#no verification of safety has been done for submission before passing it to bag_of_words_paragraph
 
 	prediction = best_predictor(submission, abv, style)[0]

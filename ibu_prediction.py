@@ -87,30 +87,16 @@ bigram_regressor = Pipeline([
 def clean(s):
     return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
-
-def bag_of_words_paragraph(text,feature_coef_file=feature_coef_file):
-    with open(feature_coef_file,'r') as f:
-        feature_coef_dic = json.load(f)
+def build_strength_dic(text, feature_coef_file=feature_coef_file):
     '''
     renders an html paragraph given a textual description
 
     the input text here has not been verified and needs to be cleaned.
     '''
+    with open(feature_coef_file,'r') as f:
+        feature_coef_dic = json.load(f)
+
     clean_text = clean(text)
-    working_dic = build_colors_plt(clean_text,feature_coef_dic)
-    words = clean_text.split()
-    para = []
-    style = []
-    counter = 1
-    for word in words:
-        if word not in working_dic:
-            para.append(word)
-            para.append(' ')
-        else:
-            para.append('<span ')
-            
-            para.append('onmouseover="changeContent(\'desc')
-            para.append(str(counter))
             para.append('\')"')
 
             para.append('onmouseout="resetContent()"')
