@@ -1,7 +1,7 @@
 import flask
 from build_results_html import build_results_html, build_bitterness_tables
 from parsers import parse_abv, parse_style, median_abv, decode_parsed_style
-from ibu_prediction import build_distplot_with_line
+from graphic_tools import build_distplot_with_line
 
 defined_examples = range(10,16)
 
