@@ -2,8 +2,6 @@ import pandas as pd
 import json
 import pickle
 import unicodedata
-from graphic_tools import build_colors_plt
-
 
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -53,9 +51,6 @@ bigram_regressor = Pipeline([
 
 #would be better if color map were not hard-coded here and below but rather a global variable
 
-
-def clean(s):
-    return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
 def strength_dic(feature_coef_file=feature_coef_file):
     with open(feature_coef_file,'r') as f:
