@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from ibu_prediction import best_predictor, get_strongest_and_weakest, strength_dic
 from parsers import encode_style
+from graphic_tools import color_from_coef
 import unicodedata
    
 
@@ -22,29 +23,34 @@ def bag_of_words_paragraph(text, strength_dic):
         if word not in strength_dic:
             soup.append(word)
             soup.append(' ')
-        else:
-            this_word = soup.new_tag('span')
-            this_word['onmouseover']="changeContent('desc"+str(counter)+"')"
-            this_word['onmouseout']='resetContent()'
-            this_word['style']='background: '+strength_dic[word]['hex_color']
-            this_word.append(word)
-            soup.append(this_word)
-
-            coef = strength_dic[word]['coefficient']
-            if coef > 0:
-                coef_string = '+'+str(round(coef,1))
-            else:
-                coef_string = str(round(coef,1))
-
-            hidden_val = soup.new_tag('input')
-            hidden_val['type']='hidden'
-            hidden_val['id']='desc'+str(counter)
-            hidden_val['value']=coef_string
-
-            soup.append(hidden_val)
+            continue
+        coef = strength_dic[word] #fix this
+        hex_color = color_from_coef(coef)
+        if not hex_color:
+            soup.append(word)
             soup.append(' ')
+            continue    
+        if coef > 0:
+            coef_string = '+'+str(round(coef,1))
+        else:
+            coef_string = str(round(coef,1))
 
-            counter+=1
+        this_word = soup.new_tag('span')
+        this_word['onmouseover']="changeContent('desc"+str(counter)+"')"
+        this_word['onmouseout']='resetContent()'
+        this_word['style']='background: '+hex_color
+        this_word.append(word)
+        soup.append(this_word)
+
+        hidden_val = soup.new_tag('input')
+        hidden_val['type']='hidden'
+        hidden_val['id']='desc'+str(counter)
+        hidden_val['value']=coef_string
+
+        soup.append(hidden_val)
+        soup.append(' ')
+
+        counter+=1
     return soup
 
 

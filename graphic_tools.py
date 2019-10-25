@@ -7,7 +7,7 @@ from matplotlib import colors, cm
 import seaborn as sns
 import io
 
-def colors_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.coolwarm, cutoffs = [-6,6]):
+def color_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.coolwarm, cutoffs = [-6,6]):
     norm = colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
     if coef < cutoffs[0] or coef > cutoffs[1]:
         normalized_coef = norm(coef)
