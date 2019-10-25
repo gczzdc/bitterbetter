@@ -7,7 +7,12 @@ from matplotlib import colors, cm
 import seaborn as sns
 import io
 
-def color_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.coolwarm, cutoffs = [-6,6]):
+from importlib import import_module
+from static_tools import gradient
+
+colormap = cm.getattr(gradient)
+
+def color_from_coef(coef, vmin = -40, vmax = 40, cmap = colormap, cutoffs = [-6,6]):
     norm = colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
     if coef < cutoffs[0] or coef > cutoffs[1]:
         normalized_coef = norm(coef)
@@ -17,7 +22,6 @@ def color_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.coolwarm, cutoffs = [
     else:
         return False
 
-#would be better if color map were not hard-coded but rather a global variable
 
 def build_colors_plt(text, feature_coef_dic):
     words = text.split()

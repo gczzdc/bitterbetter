@@ -3,8 +3,10 @@ import matplotlib
 matplotlib.use("Agg")
 from matplotlib import pyplot as plt
 
+gradient = coolwarm
 
-def generate_gradient(gradient_name='coolwarm', with_text=False, filename = 'static/gradient.png'):
+
+def generate_gradient(gradient_name=gradient, with_text=False, filename = 'static/gradient.png'):
 	gradient = np.linspace(0, 1, 256)
 	gradient = np.vstack((gradient, gradient))
 
