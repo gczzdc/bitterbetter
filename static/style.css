@@ -136,7 +136,10 @@ label {
   margin: 1em auto; 
   background: #fafafa; }
 
-
+.clear 
+{
+  clear: both;
+}
 
 .centered{ 
 	text-align: center; 
