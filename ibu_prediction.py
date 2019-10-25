@@ -49,7 +49,6 @@ bigram_regressor = Pipeline([
     ])
 
 
-#would be better if color map were not hard-coded here and below but rather a global variable
 
 
 def strength_dic(feature_coef_file=feature_coef_file):

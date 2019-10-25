@@ -17,6 +17,7 @@ def colors_from_coef(coef, vmin = -40, vmax = 40, cmap = cm.coolwarm, cutoffs = 
     else:
         return False
 
+#would be better if color map were not hard-coded but rather a global variable
 
 def build_colors_plt(text, feature_coef_dic):
     words = text.split()
