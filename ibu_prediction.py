@@ -57,13 +57,10 @@ bigram_regressor = Pipeline([
 def clean(s):
     return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
-def build_strength_dic(text, feature_coef_file=feature_coef_file):
+def strength_dic(feature_coef_file=feature_coef_file):
     with open(feature_coef_file,'r') as f:
         feature_coef_dic = json.load(f)
-
-    clean_text = clean(text)
-    strength_dic = build_colors_plt(clean_text,feature_coef_dic)
-    return strength_dic
+    return feature_coef_dic
 
 
 def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):

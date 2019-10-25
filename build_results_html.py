@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from ibu_prediction import best_predictor, get_strongest_and_weakest, build_strength_dic
+from ibu_prediction import best_predictor, get_strongest_and_weakest, strength_dic
 from parsers import encode_style
 import unicodedata
    
