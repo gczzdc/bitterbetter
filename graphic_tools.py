@@ -10,7 +10,7 @@ import io
 from importlib import import_module
 from static_tools import gradient
 
-colormap = cm.getattr(gradient)
+colormap = getattr(cm, gradient)
 
 def color_from_coef(coef, vmin = -40, vmax = 40, cmap = colormap, cutoffs = [-6,6]):
     norm = colors.Normalize(vmin=vmin, vmax=vmax, clip=True)

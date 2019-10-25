@@ -3,7 +3,7 @@ import matplotlib
 matplotlib.use("Agg")
 from matplotlib import pyplot as plt
 
-gradient = coolwarm
+gradient = 'coolwarm'
 
 
 def generate_gradient(gradient_name=gradient, with_text=False, filename = 'static/gradient.png'):
