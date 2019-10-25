@@ -91,8 +91,14 @@ img {
   vertical-align: bottom;
 }
 
-.page           { margin: 2em auto; width: 38em; border: 5px solid #ccc;
+.pagebox           { margin: 2em auto; width: 38em; border: 5px solid #ccc;
                   padding: 0.8em; background: white; column-span: 1}
+
+.index-page          
+{ 
+  background: rgba(255, 255, 255, 0.85);
+}
+
 
 label {
     margin-bottom: 20px;
