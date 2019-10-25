@@ -6,7 +6,6 @@ overtune hyperparameters for two built-in models
 build feature_coef_dic dynamically from fully fitted regressor
 
 FRONTEND EVENTUAL
-redo ibu_prediction html generation using beautifulsoup
 
 WISHLIST:
 save common styles in a json file instead of hard coding them
