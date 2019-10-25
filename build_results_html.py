@@ -8,6 +8,11 @@ def clean(s):
     return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
 def bag_of_words_paragraph(text, strength_dic):
+    '''
+    renders an html paragraph given a textual description
+
+    the input text here has not been verified and needs to be cleaned.
+    '''
     clean_text = clean(text)
     words = clean_text.split()
     style = []

@@ -58,11 +58,6 @@ def clean(s):
     return "".join(ch for ch in s if unicodedata.category(ch)[0] not in ("C","P"))
 
 def build_strength_dic(text, feature_coef_file=feature_coef_file):
-    '''
-    renders an html paragraph given a textual description
-
-    the input text here has not been verified and needs to be cleaned.
-    '''
     with open(feature_coef_file,'r') as f:
         feature_coef_dic = json.load(f)
 
