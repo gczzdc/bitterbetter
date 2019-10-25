@@ -105,12 +105,12 @@ label {
 }
 
 
-.container {
+.content-box {
   /*display: flex;*/
   /*justify-content: space-around;*/
 }
 
-.container > div {
+.content-box > div {
 
   min-width: 200px;
   max-width: 500px;
@@ -146,6 +146,9 @@ label {
   min-height: 100px;
 }
 
+.outer-subcontent-box{
+  margin: 1.5px auto;
+}
 
 .normal-font-size
 {
