@@ -1,20 +1,7 @@
 import pandas as pd
-import numpy as np
-import matplotlib
-matplotlib.use("Agg")
-from matplotlib import pyplot as plt
-from matplotlib import cm
-from matplotlib import colors
-import seaborn as sns
 import json
 import pickle
-import copy
-import string
 import unicodedata
-
-
-
-import io
 from graphic_tools import build_colors_plt
 
 
@@ -30,23 +17,6 @@ feature_coef_file = 'weights.json'
 regressor_file = 'regressor.pickle'
 no_style_regressor_file = 'no_style_regressor.pickle'
 
-
-
-#probably better to redo this from the fitted regressor
-
-# class NumberDestroyer(base.BaseEstimator, base.TransformerMixin):
-#     def __init__(self):
-#         pass
-   
-#     def fit(self, X, y=None):
-#         return self
-
-#     def transform(self, X):
-#         d= {str(a):'' for a in range(10)}
-#         X_copy = copy.copy(X)
-#         for k in d:
-#             X_copy = X_copy.str.replace(k,d[k])
-#         return (X_copy)
 
 
 tfidf_bigram_vectorizer = TfidfVectorizer(
