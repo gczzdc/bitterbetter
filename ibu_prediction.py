@@ -15,8 +15,6 @@ feature_coef_file = 'weights.json'
 regressor_file = 'regressor.pickle'
 no_style_regressor_file = 'no_style_regressor.pickle'
 
-
-
 tfidf_bigram_vectorizer = TfidfVectorizer(
         strip_accents='unicode',
         decode_error='ignore',
@@ -25,11 +23,9 @@ tfidf_bigram_vectorizer = TfidfVectorizer(
         max_df = .85,
         min_df = 5)
 
-
 text_bigram_pipe = Pipeline([
     ('number_destroyer',NumberDestroyer()),
     ('vectorizer',tfidf_bigram_vectorizer)])
-
 
 column_bigram_transformer = ColumnTransformer([
     ('text_encoder',text_bigram_pipe,'text'),
@@ -47,9 +43,6 @@ bigram_regressor = Pipeline([
     #('estimator',SGDRegressor(alpha=.0002, max_iter=30000))
     ('estimator',Ridge(alpha=3))
     ])
-
-
-
 
 def strength_dic(feature_coef_file=feature_coef_file):
     with open(feature_coef_file,'r') as f:
