@@ -64,7 +64,6 @@ def dist(data):
 	style = decode_parsed_style(raw_split[0])
 	return flask.send_file(build_distplot_with_line(style,predicted_ibu), attachment_filename='dist_{}.png'.format(data), mimetype='image/png')
 
-
 @app.route('/about.html',methods=['GET',])
 @app.route('/about',methods=['GET',])
 def about():
