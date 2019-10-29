@@ -73,11 +73,6 @@ select { font-size: 1em; }
   line-height: 75px;
 }
 
-.graph {
-	text-align: center; 
-  min-height: 300px;
-}
-
 .box { 
   min-width: 450px;
   display:inline-block;
