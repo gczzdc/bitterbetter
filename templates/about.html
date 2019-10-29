@@ -1,110 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>BitterBetter</title>
-<link rel = stylesheet type=text/css href=../static/style.css>
-<!-- {{resources}} -->
-</head>
-<body>
-<div class = pagebox>
-	<h1>BitterBetter</h1>
-<h3>Beer marketing copy ⮕ predicted bitterness</h3>
-<div>
-	<p>
-	BitterBetter uses textual descriptions of beer to predict bitterness. 
-	<br>
-	The use case is for brewers to calibrate their brand stories.
-	</p>
-	<p>
-	<a href="index">Try it!</a>
-	</p>
-</div>
-<details>
-	<summary>
-	<h4><span class="button">Motivation</span></h4>
-</summary>
-<p>
-Consider the marketing copy for the following two beers.
-</p>
-<div style="display: table; width:100%;">
-	<div style="display: table-row">
-		<div style="display: table-cell;width:20%;vertical-align: middle">
-			<img src="static/miskatonic_dark_rye.jpg" alt="Captured By Porches' Miskatonic Dark Rye" style="width:200px">
+	<head>
+		<title>BitterBetter</title>
+		<link rel = stylesheet type=text/css href=../static/style.css>
+	</head>
+	<body>
+		<div class = pagebox>
+			<h1>BitterBetter</h1>
+			<h3>Beer marketing copy ⮕ predicted bitterness</h3>
+			<div>
+				<p>
+					BitterBetter uses textual descriptions of beer to predict bitterness. 
+					<br>
+					The use case is for brewers to calibrate their brand stories.
+				</p>
+				<p>
+					<a href="index">Try it!</a>
+				</p>
+			</div>
+			<details>
+				<summary>
+					<h4><span class="button">Motivation</span></h4>
+				</summary>
+				<p>
+					Consider the marketing copy for the following two beers.
+				</p>
+				<div style="display: table; width:100%;">
+					<div style="display: table-row">
+						<div style="display: table-cell;width:20%;vertical-align: middle">
+							<img src="static/miskatonic_dark_rye.jpg" alt="Captured By Porches' Miskatonic Dark Rye" style="width:200px">
+						</div>
+						<div style="display: table-cell;width:80%;vertical-align: middle;text-align:center">
+							<a href="index?example=10">
+    							Captured by Porches “Miskatonic Dark Rye”
+  							</a>
+							<blockquote>
+								A moderately dark rye ale brewed with traditional Bavarian Hefeweizen yeast to give a roasty and fruity finish.
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				<div style="display: table; width:100%;">
+					<div style="display: table-row">
+						<div style="display: table-cell;width:20%;vertical-align: middle">
+							<img src="static/daddys_juice_box.jpg" alt="True Vine's Daddy's Juice Box" style="width:200px">
+						</div>
+						<div style="display: table-cell;width:80%;vertical-align: middle; text-align:center">
+							<a href="index?example=11">
+    							True Vine “Daddy’s Juice Box”
+    						</a>
+  							<blockquote>
+								Being a grown-up means responsibilities galore but it also means getting grown-up treats. And we don’t mean fruit snacks and goldfish. We’re talking big, bold, 8.5% treats. Our Daddy’s Juice Box Double IPA is a big, juicy, hop declaration of a treat. With a full nose of tropical aromas and a super smooth finish, this hop beast is sure to reward. So get your own juice box, kids. This one’s for daddy. 
+							</blockquote>
+ 						</div>
+ 					</div>
+				</div>
+				<div class="clear"></div>
+				<p>
+					The description of the dark rye, with words like &ldquo;Hefeweizen&rdquo; and &ldquo;roasty,&rdquo; doesn't sound bitter at all, while Daddy's juice box, with &ldquo;big, bold&rdquo; and &ldquo;hop beast&rdquo; sounds like it will be pretty bitter, especially for a juicy IPA. But in fact, the IBU rating of the former is 70, which is quite bitter, and the IBU rating of the latter is only 25, indicating a  low level of bitterness.
+				</p>
+				<p>
+					What's the result? Consumers who try these beers based on their descriptions might be disappointed, while consumers who would have been more likely to enjoy them might not bother trying them. This points to the importance of having a description that captures the right information about the bitterness level of the beer.
+				</p>
+			</details>
+			<details>
+				<summary>
+					<h4><span class="button">More information</span></h4>
+				</summary>
+				<p>
+					Beer bitterness is estimated via the <a href = "https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">International Bittering Unit</a> or IBU scale, which measures the concentration of certain acids which arise during the brewing process. An IBU rating does not correspond precisely to perceived bitterness but has a high correlation with it.
+				</p>
+				<p>
+					The data for this project obtained from <a href="https://ratebeer.com">ratebeer.com</a> using a custom-built distributed scraper. The database includes over 600,000 beer entries  of which about 85,000 were usable. 
+				</p>
+				<p>
+					BitterBetter uses natural language processing methods to predict the IBU rating of beers.
+					Words are tokenized and both individual words and bigrams are one-hot-encoded. 
+					A combination of linear regression with ridge and lasso normalization and random forest ensembles are used to generate the predictions.
+				</p>
+				<p>
+					Some of the individual words and bigrams with the strongest contributions to the model are as follows:
+					{{tables}}
+				</p>
+				<p>
+					The median absolute error is around 6.75 on a validation set. 
+					This is pretty good resolution, as IBU differences at that scale are overshadowed by other flavor components.
+				</p>
+			</details>
+			<p>
+				This project was implemented in <a href="https://python.org">python</a>. Specific technologies and packages used in it included:
+				<ul>
+					<li> Development: <a href="https://jupyter.org/">Jupyter</a>, <a href="https://git-scm.com/">git</a></li>
+					<li> Scraping: <a href="https://www.seleniumhq.org/">selenium</a>, <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a>, distributed computing (via <a href="https://www.digitalocean.com/">DigitalOcean</a>)</li>
+					<li> Munging: <a href="https://pandas.pydata.org/">pandas</a></li>
+					<li> Model: <a href="https://scikit-learn.org/stable/">sklearn</a></li>
+					<li> Internal visualization: <a href="https://matplotlib.org/">matplotlib</a>, <a href="https://seaborn.pydata.org/">seaborn</a></li>
+					<li> Presentation: <a href="https://palletsprojects.com/p/flask/">Flask</a>, <a href="https://www.heroku.com/">Heroku</a></li>
+				</ul>
+			</p>
+			<p>
+				<a href="index">Try it!</a>
+			</p>
+			<div class="credit">
+				Background photo by Christin Hume on Unsplash
+			</div>
 		</div>
-		<div style="display: table-cell;width:80%;vertical-align: middle;text-align:center">
-			<a href="index?example=10">
-    		Captured by Porches “Miskatonic Dark Rye”
-  			</a>
-			<blockquote>
-				A moderately dark rye ale brewed with traditional Bavarian Hefeweizen yeast to give a roasty and fruity finish.
-			</blockquote>
-		</div>
-	</div>
-</div>
-<div style="display: table; width:100%;">
-	<div style="display: table-row">
-		<div style="display: table-cell;width:20%;vertical-align: middle">
-			<img src="static/daddys_juice_box.jpg" alt="True Vine's Daddy's Juice Box" style="width:200px">
-		</div>
-		<div style="display: table-cell;width:80%;vertical-align: middle; text-align:center">
-			<a href="index?example=11">
-    		True Vine “Daddy’s Juice Box”
-    		</a>
-  			<blockquote>
-			Being a grown-up means responsibilities galore but it also means getting grown-up treats. And we don’t mean fruit snacks and goldfish. We’re talking big, bold, 8.5% treats. Our Daddy’s Juice Box Double IPA is a big, juicy, hop declaration of a treat. With a full nose of tropical aromas and a super smooth finish, this hop beast is sure to reward. So get your own juice box, kids. This one’s for daddy. 
-			</blockquote>
- 		</div>
- 	</div>
-</div>
-<div class="clear"></div>
-<p>
-	The description of the dark rye, with words like &ldquo;Hefeweizen&rdquo; and &ldquo;roasty,&rdquo; doesn't sound bitter at all, while Daddy's juice box, with &ldquo;big, bold&rdquo; and &ldquo;hop beast&rdquo; sounds like it will be pretty bitter, especially for a juicy IPA. But in fact, the IBU rating of the former is 70, which is quite bitter, and the IBU rating of the latter is only 25, indicating a  low level of bitterness.
-</p>
-<p>
-	What's the result? Consumers who try these beers based on their descriptions might be disappointed, while consumers who would have been more likely to enjoy them might not bother trying them. This points to the importance of having a description that captures the right information about the bitterness level of the beer.
-</p>
-</details>
-<details>
-<summary>
-<h4><span class="button">More information</span></h4>
-</summary>
-<p>
-Beer bitterness is estimated via the <a href = "https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">International Bittering Unit</a> or IBU scale, which measures the concentration of certain acids which arise during the brewing process. An IBU rating does not correspond precisely to perceived bitterness but has a high correlation with it.
-</p>
-<p>
-The data for this project obtained from <a href="https://ratebeer.com">ratebeer.com</a> using a custom-built distributed scraper. The database includes over 600,000 beer entries  of which about 85,000 were usable. 
-</p>
-<p>
-BitterBetter uses natural language processing methods to predict the IBU rating of beers.
-Words are tokenized and both individual words and bigrams are one-hot-encoded. 
-A combination of linear regression with ridge and lasso normalization and random forest ensembles are used to generate the predictions.
-</p>
-<p>
-	Some of the individual words and bigrams with the strongest contributions to the model are as follows:
-{{tables}}
-</p>
-<p>
-The median absolute error is around 6.75 on a validation set. 
-This is pretty good resolution, as IBU differences at that scale are overshadowed by other flavor components.
-</p>
-</details>
-<p>
-This project was implemented in <a href="https://python.org">python</a>. Specific technologies and packages used in it included:
-<ul>
-	<li> Development: <a href="https://jupyter.org/">Jupyter</a>, <a href="https://git-scm.com/">git</a></li>
-	<li> Scraping: <a href="https://www.seleniumhq.org/">selenium</a>, <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a>, distributed computing (via <a href="https://www.digitalocean.com/">DigitalOcean</a>)</li>
-	<li> Munging: <a href="https://pandas.pydata.org/">pandas</a></li>
-	<li> Model: <a href="https://scikit-learn.org/stable/">sklearn</a></li>
-	<li> Internal visualization: <a href="https://matplotlib.org/">matplotlib</a>, <a href="https://seaborn.pydata.org/">seaborn</a></li>
-	<li> Presentation: <a href="https://palletsprojects.com/p/flask/">Flask</a>, <a href="https://www.heroku.com/">Heroku</a></li>
-</ul>
-</p>
-<p>
-<a href="index">Try it!</a>
-</p>
-<div class="credit">
-Background photo by Christin Hume on Unsplash
-</div>
-</div>
-</body>
+	</body>
 </html>
