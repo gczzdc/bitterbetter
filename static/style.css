@@ -143,6 +143,10 @@ blockquote {
   float: right; 
 }
 
+#results_submission {
+  text-align: left;
+}
+
 .credit{
   text-align: right;
   font-size: .55em;

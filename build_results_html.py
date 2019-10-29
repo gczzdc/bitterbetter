@@ -66,7 +66,7 @@ def build_results_html(submission,abv,style):
     soup.div.div.h4.append('Results')
     
     para = soup.new_tag('div')
-    para['style']='text-align: left'
+    para['id']='results_submission'
 
     # para.append(soup.new_tag('p'))
     s_dic = strength_dic()
