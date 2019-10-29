@@ -65,6 +65,17 @@ td {
   text-align:center
 }
 
+#bitterness_tables_container {
+  display: table;
+  margin: 20px auto;
+  width:80%;
+}
+
+.bitterness_table_container {
+  display: table-cell; 
+  width:40%
+}
+
 
 /* forms */
 textarea { font-size: 1em; }
