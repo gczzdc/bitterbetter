@@ -109,6 +109,13 @@ blockquote {
   text-align: center;
 }
 
+#gradient_box {
+  display:inline-block;
+  width:395px;
+  vertical-align:bottom;
+  line-height:0px;
+}
+
 #gradient_img {
   display: block;
   padding: 0;

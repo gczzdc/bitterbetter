@@ -98,7 +98,7 @@ def build_results_html(submission,abv,style):
     gradient.append(soup.new_tag('div'))
     gradient.div['class']='gradient_parent'
     gradient.div.append(soup.new_tag('div'))
-    gradient.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
+    gradient.div.div['id']= 'gradient_box'
     left_label = soup.new_tag('span')
     left_label['id']='less_bitter'
     left_label.append('less bitter')
