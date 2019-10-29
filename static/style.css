@@ -157,9 +157,3 @@ blockquote {
   font-size: .55em;
 }
 
-/*should be changed*/
-
-.centered{ 
-	text-align: center; 
-  min-height: 6em;
-}
