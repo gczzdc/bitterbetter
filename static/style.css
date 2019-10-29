@@ -110,7 +110,7 @@ img {
 
 label { margin-bottom: 20px; }
 
-.beer_description {
+blockquote {
   font-family: Lucida Console, Courier, monospace;
   font-size: 1em;
   text-align:left;
