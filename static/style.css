@@ -73,6 +73,10 @@ select { font-size: 1em; }
   line-height: 75px;
 }
 
+.content-box > div {
+    margin-left:auto; 
+    margin-right:auto;
+}
 
 .outer-subcontent-box{ margin: 1.5px auto; }
 
