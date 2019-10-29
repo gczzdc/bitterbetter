@@ -46,6 +46,27 @@ td {
   padding-left:6px;
 }
 
+.example_container {
+  display: table; 
+  width:100%;
+}
+
+.example_subcontainer { display: table-row }
+
+.example_pic { 
+  display: table-cell;
+  width:20%;
+  vertical-align: middle
+}
+
+.example_description {
+  display: table-cell;
+  width:80%;
+  vertical-align: middle;
+  text-align:center
+}
+
+
 /* forms */
 textarea { font-size: 1em; }
 
