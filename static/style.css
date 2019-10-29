@@ -85,11 +85,6 @@ img {
 }
 
 
-label {
-    margin-bottom: 20px;
-}
-
-
 .content-box > div {
 
   min-width: 200px;
@@ -126,6 +121,11 @@ label {
 
 
 /* minor layout elements */
+
+label {
+    margin-bottom: 20px;
+}
+
 
 .button { 
   background-color: #EEEEEE;
