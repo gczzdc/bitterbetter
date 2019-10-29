@@ -94,7 +94,7 @@ def build_results_html(submission,abv,style):
 
     gradient = soup.new_tag('p')
     gradient.append(soup.new_tag('div'))
-    gradient.div['class']='gradient_parent'
+    gradient.div['id']='gradient_parent'
     gradient.div.append(soup.new_tag('div'))
     gradient.div.div['id']= 'gradient_box'
     left_label = soup.new_tag('span')
