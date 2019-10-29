@@ -110,6 +110,12 @@ img {
 
 label { margin-bottom: 20px; }
 
+.beer_description {
+  font-family: Lucida Console, Courier, monospace;
+  font-size: 1em;
+  text-align:left;
+}
+
 .button { 
   background-color: #EEEEEE;
   color: #333333;
@@ -128,10 +134,7 @@ label { margin-bottom: 20px; }
 
 /*should be changed*/
 
-.monospace {
-  font-family: Lucida Console, Courier, monospace;
-  font-size: 1em;
-}
+
 
 .centered{ 
 	text-align: center; 
