@@ -98,9 +98,6 @@ select { font-size: 1em; }
   margin-right:auto;
 }
 
-
-.outer-subcontent-box{ margin: 1.5px auto; }
-
 .box { 
   width: 450px;
   display:inline-block;
