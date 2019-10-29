@@ -101,7 +101,7 @@ select { font-size: 1em; }
 .box { 
   width: 450px;
   display:inline-block;
-	line-height:30px;
+	line-height:2em;
   border: 2px solid #ccc;
   padding-left: 20px;
   padding-right: 20px;
