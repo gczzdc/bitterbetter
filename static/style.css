@@ -73,6 +73,9 @@ select { font-size: 1em; }
   line-height: 75px;
 }
 
+
+.outer-subcontent-box{ margin: 1.5px auto; }
+
 .box { 
   min-width: 450px;
   display:inline-block;
@@ -84,8 +87,6 @@ select { font-size: 1em; }
   background: #fafafa; }
 
 .clear { clear: both; }
-
-.outer-subcontent-box{ margin: 1.5px auto; }
 
 /* minor layout elements */
 
