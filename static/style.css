@@ -11,7 +11,7 @@ h1         { font-family: 'Georgia', serif; margin: 0; text-align:center;}
 h3,h4				
 {
   text-align: center;
-  margin: 15px;
+  margin: 1em;
 }
 
 /*for dropdowns*/
@@ -52,24 +52,6 @@ textarea { font-size: 1em; }
 input { font-size: 1em; }
 
 select { font-size: 1em; }
-
-/*for centering images*/
-.imgparent {
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-img {
-  display: block;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: 100%;
-  height: auto;
-  vertical-align: bottom;
-}
 
 /*main layout elements */
 
@@ -120,6 +102,23 @@ blockquote {
   text-align:left;
 }
 
+#gradient_parent {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#gradient {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
 .button { 
   background-color: #EEEEEE;
   color: #333333;
@@ -161,5 +160,5 @@ blockquote {
 
 .centered{ 
 	text-align: center; 
-  min-height: 100px;
+  min-height: 6em;
 }
