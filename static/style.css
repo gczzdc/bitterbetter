@@ -102,7 +102,7 @@ select { font-size: 1em; }
 .outer-subcontent-box{ margin: 1.5px auto; }
 
 .box { 
-  min-width: 450px;
+  width: 450px;
   display:inline-block;
 	line-height:30px;
   border: 2px solid #ccc;
