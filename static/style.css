@@ -131,7 +131,9 @@ blockquote {
   outline: none;
 }
 
-#abv_input{ margin-right: 30px }
+#abv_input_span{ margin-right: 2em; }
+
+#abv_input{ width:3em; }
 
 #less_bitter, #morebitter {
   vertical-align:bottom;
