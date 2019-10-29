@@ -59,6 +59,10 @@ td {
   vertical-align: middle
 }
 
+.example_pic > img {
+  width:200px;
+}
+
 .example_description {
   display: table-cell;
   width:80%;
