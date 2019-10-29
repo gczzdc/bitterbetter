@@ -46,12 +46,7 @@ td {
   padding-left:6px;
 }
 
-.example_container {
-  display: table; 
-  width:100%;
-}
-
-.example_subcontainer { display: table-row }
+.example_container { display: table-row }
 
 .example_pic { 
   display: table-cell;
