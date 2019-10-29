@@ -58,12 +58,10 @@ def bag_of_words_paragraph(text, strength_dic):
 def build_results_html(submission,abv,style):
     soup = BeautifulSoup('','html.parser')
     soup.append(soup.new_tag('div'))
-    soup.div['class']='outer-subcontent-box'
-    soup.div.append(soup.new_tag('div'))
-    soup.div.div['class']= 'box'
+    soup.div['class']= 'box'
 
-    soup.div.div.append(soup.new_tag('h4'))
-    soup.div.div.h4.append('Results')
+    soup.div.append(soup.new_tag('h4'))
+    soup.div.h4.append('Results')
     
     para = soup.new_tag('div')
     para['id']='results_submission'
@@ -115,11 +113,11 @@ def build_results_html(submission,abv,style):
     gradient.div.img['src']='../static/gradient.png'
     gradient.div.img['alt']='gradient legend'
 
-    soup.div.div.append(para)
-    soup.div.div.append(predict_line)
-    soup.div.div.append(contribution)
-    soup.div.div.append(distribution)
-    soup.div.div.append(gradient)
+    soup.div.append(para)
+    soup.div.append(predict_line)
+    soup.div.append(contribution)
+    soup.div.append(distribution)
+    soup.div.append(gradient)
     intermezzo = soup.new_tag('div')
     intermezzo.append(soup.new_tag('p'))
     intermezzo.p.append('Try changing your description!')
