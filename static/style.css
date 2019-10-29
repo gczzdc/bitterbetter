@@ -127,6 +127,8 @@ blockquote {
   outline: none;
 }
 
+#abv_input{ margin-right: 30px }
+
 .credit{
   text-align: right;
   font-size: .55em;
@@ -141,7 +143,6 @@ blockquote {
   min-height: 100px;
 }
 
-.padded_on_right{ margin-right: 30px }
 
 .alignleft { float: left; }
 
