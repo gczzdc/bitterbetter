@@ -11,7 +11,6 @@ app = flask.Flask(__name__)
 @app.route('/index',methods=['GET','POST'])
 def index():
 	keywords = {'submission': '',
-				'error_message': '',
 				'selected_not_specified': 'selected="selected"',
 				'abv': str(median_abv)}
 
