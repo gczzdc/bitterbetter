@@ -5,6 +5,7 @@ body {
 }
 
 a, h1      { color: #377BA8;}
+
 h1         { font-family: 'Georgia', serif; margin: 0; text-align:center;}
 
 h3,h4				
@@ -19,44 +20,38 @@ details summary::-webkit-details-marker {
   display:none;
 }
 
-details > summary:first-of-type {
-    list-style-type: none;
-}
-summary:focus{
-  outline:0;
-}
+details > summary:first-of-type { list-style-type: none; }
+
+summary:focus{ outline:0; }
 
 /*for tables*/
 table {
   border-collapse: collapse;
-     margin: 0 auto;
+  margin: 0 auto;
 }
-table, th, td {
-  border: 1px solid black;
+
+table, th, td { border: 1px solid black;}
+
+th {
+  padding-right: 6px;
+  padding-left: 6px;
 }
-th {padding-right: 6px;
-padding-left: 6px;}
 
 tr:nth-child(even){background-color: #d2d2d2;}
 
 tr:hover {background-color: #888;}
 
-td {padding-right: 6px;
+td {
+  padding-right: 6px;
   padding-left:6px;
 }
 
 /* forms */
-textarea {
-  font-size: 1em;
-}
+textarea { font-size: 1em; }
 
-input {
-  font-size: 1em;
-}
+input { font-size: 1em; }
 
-select {
-  font-size: 1em;
-}
+select { font-size: 1em; }
 
 /*for centering images*/
 .imgparent {
@@ -78,16 +73,14 @@ img {
 
 /*main layout elements */
 
-.pagebox           { margin: 2em auto; width: 38em; border: 5px solid #ccc;
-                  padding: 0.8em; background: white; column-span: 1}
-
-.index-page          
-{ 
-  background: rgba(255, 255, 255, 0.85);
+.pagebox { 
+  margin: 2em auto; width: 38em; border: 5px solid #ccc;
+  padding: 0.8em; background: white; column-span: 1
 }
 
-.content-box > div {
+.index-page { background: rgba(255, 255, 255, 0.85); }
 
+.content-box > div {
   min-width: 200px;
   max-width: 500px;
   text-align: center;
@@ -99,7 +92,7 @@ img {
   min-height: 300px;
 }
 
-.box        { 
+.box { 
   min-width: 450px;
   display:inline-block;
 	line-height:30px;
@@ -109,20 +102,13 @@ img {
   margin: 1em auto; 
   background: #fafafa; }
 
-.clear 
-{
-  clear: both;
-}
+.clear { clear: both; }
 
-.outer-subcontent-box{
-  margin: 1.5px auto;
-}
+.outer-subcontent-box{ margin: 1.5px auto; }
 
 /* minor layout elements */
 
-label {
-    margin-bottom: 20px;
-}
+label { margin-bottom: 20px; }
 
 .button { 
   background-color: #EEEEEE;
@@ -152,18 +138,10 @@ label {
   min-height: 100px;
 }
 
-.padded_on_right{
-margin-right: 30px
-}
+.padded_on_right{ margin-right: 30px }
 
-.alignleft {
-  float: left;
-}
-.alignright {
-  float: right;
-}
+.alignleft { float: left; }
 
-.inline {
-  display: inline;
-}
+.alignright { float: right; }
 
+.inline { display: inline; }
