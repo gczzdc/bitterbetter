@@ -120,6 +120,11 @@ blockquote {
   text-align:left;
 }
 
+#content {
+  display:inline-block; 
+  width:30px;
+}
+
 ##dist_parent, #gradient_parent {
   width: 400px;
   margin-left: auto;

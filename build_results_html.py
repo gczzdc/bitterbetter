@@ -83,7 +83,6 @@ def build_results_html(submission,abv,style):
     contribution['align']='center'
     content_tag = soup.new_tag('span')
     content_tag['id']='content'
-    content_tag['style']='display:inline-block; width:30px'
     contribution.append('Approximate (relative) contribution from selected word: ')
     contribution.append(soup.new_tag('strong'))
     contribution.strong.append(content_tag)
