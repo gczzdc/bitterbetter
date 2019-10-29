@@ -105,7 +105,6 @@ def build_results_html(submission,abv,style):
     gradient.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
     left_label = soup.new_tag('span')
     left_label['id']='less_bitter'
-    # left_label['style']='vertical-align:bottom;line-height:0px'
     left_label.append('less bitter')
 
     right_label = soup.new_tag('span')
