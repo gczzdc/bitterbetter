@@ -88,8 +88,10 @@ def build_results_html(submission,abv,style):
     contribution.append(soup.new_tag('strong'))
     contribution.strong.append(content_tag)
 
-    distribution = soup.new_tag('p')
+    distribution = soup.new_tag('div')
     distribution.append(soup.new_tag('img'))
+    distribution['id']='dist_parent'
+    distribution.img['id']='dist_img'
     distribution.img['src']='dist_{}--{}.png'.format(encode_style(style),prediction)
 
     gradient = soup.new_tag('p')
