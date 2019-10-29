@@ -27,11 +27,6 @@ summary:focus{
   outline:0;
 }
 
-.credit{
-  text-align: right;
-  font-size: .55em;
-}
-
 
 /*for tables*/
 table {
@@ -164,6 +159,12 @@ label {
 .link-button:active {
   color:red;
 }
+
+.credit{
+  text-align: right;
+  font-size: .55em;
+}
+
 
 
 
