@@ -149,18 +149,16 @@ def build_bitterness_tables():
 
     total_table = BeautifulSoup('','html.parser')
     total_table.append(total_table.new_tag('div'))
-    total_table.div['style'] = "margin-left:auto; margin-right:auto; margin-top:20px; margin-bottom:20px; display: table; width:80%;"
-    total_table.div.append(total_table.new_tag('div'))
-    total_table.div.div['style']="display: table-row"
+    total_table.div['id']= 'bitterness_tables_container'
     
     bitter_cell = total_table.new_tag('div')
-    bitter_cell['style']="display: table-cell; width:40%"
+    bitter_cell['class']='bitterness_table_container'
     bitter_cell.append(bitter_table)
-    total_table.div.div.append(bitter_cell)
+    total_table.div.append(bitter_cell)
     
     nonbitter_cell = total_table.new_tag('div')
-    nonbitter_cell['style']="display: table-cell; width:40%"
+    nonbitter_cell['class']='bitterness_table_container'
     nonbitter_cell.append(nonbitter_table)
-    total_table.div.div.append(nonbitter_cell)
+    total_table.div.append(nonbitter_cell)
 
     return total_table.prettify()
