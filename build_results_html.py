@@ -58,7 +58,7 @@ def bag_of_words_paragraph(text, strength_dic):
 def build_results_html(submission,abv,style):
     soup = BeautifulSoup('','html.parser')
     soup.append(soup.new_tag('div'))
-    soup.div['style']='margin: 1em auto'
+    soup.div['class']='outer-subcontent-box'
     soup.div.append(soup.new_tag('div'))
     soup.div.div['class']= 'box'
 
