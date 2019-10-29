@@ -103,17 +103,17 @@ def build_results_html(submission,abv,style):
     gradient.div['class']='imgparent'
     gradient.div.append(soup.new_tag('div'))
     gradient.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
-    left_p = soup.new_tag('p')
-    left_p['class']='alignleft'
-    left_p['style']='vertical-align:bottom;line-height:0px'
-    left_p.append('less bitter')
+    left_label = soup.new_tag('span')
+    left_label['id']='less_bitter'
+    # left_label['style']='vertical-align:bottom;line-height:0px'
+    left_label.append('less bitter')
 
-    right_p = soup.new_tag('p')
-    right_p['class']='alignright'
-    right_p.append('more bitter')
+    right_label = soup.new_tag('span')
+    right_label['id']='more_bitter'
+    right_label.append('more bitter')
     
-    gradient.div.div.append(left_p)
-    gradient.div.div.append(right_p)
+    gradient.div.div.append(left_label)
+    gradient.div.div.append(right_label)
 
 
     gradient.div.append(soup.new_tag('img'))

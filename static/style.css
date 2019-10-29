@@ -129,6 +129,21 @@ blockquote {
 
 #abv_input{ margin-right: 30px }
 
+#less_bitter, #morebitter {
+  vertical-align:bottom;
+  padding-bottom: .7em;
+  line-height:0px;
+}
+
+#less_bitter {
+  float: left;
+}
+
+#more_bitter {
+  float: right; 
+}
+
+
 .credit{
   text-align: right;
   font-size: .55em;
@@ -143,9 +158,5 @@ blockquote {
   min-height: 100px;
 }
 
-
-.alignleft { float: left; }
-
-.alignright { float: right; }
 
 .inline { display: inline; }
