@@ -3,7 +3,6 @@
 <title>BitterBetter</title>
 <head>
 <link rel = stylesheet type=text/css href=../static/style.css>
-<!-- {{resources}} -->
 <script>
     function changeContent(description) {
         console.log(description);
@@ -11,9 +10,7 @@
         document.getElementById('content').innerHTML = MyDesc.value;
     }
     function resetContent() {
-        // console.log(description);
-        // var MyDesc = document.getElementById(description);
-        document.getElementById('content').innerHTML = "";//MyDesc.value;
+        document.getElementById('content').innerHTML = "";
     }
 </script>
 </head>
