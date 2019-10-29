@@ -100,7 +100,7 @@ def build_results_html(submission,abv,style):
 
     gradient = soup.new_tag('p')
     gradient.append(soup.new_tag('div'))
-    gradient.div['class']='imgparent'
+    gradient.div['class']='gradient_parent'
     gradient.div.append(soup.new_tag('div'))
     gradient.div.div['style']= 'display:inline-block;width:395px;vertical-align:bottom;line-height:0px;'
     left_label = soup.new_tag('span')
@@ -116,7 +116,7 @@ def build_results_html(submission,abv,style):
     gradient.div.div.append(right_label)
 
 
-    gradient.div.append(soup.new_tag('img'))
+    gradient.div.append(soup.new_tag('gradient'))
     gradient.div.img['src']='../static/gradient.png'
     gradient.div.img['alt']='gradient legend'
 
