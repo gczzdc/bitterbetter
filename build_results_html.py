@@ -68,11 +68,8 @@ def build_results_html(submission,abv,style):
     para = soup.new_tag('div')
     para['id']='results_submission'
 
-    # para.append(soup.new_tag('p'))
     s_dic = strength_dic()
     para.append(bag_of_words_paragraph(submission, s_dic))
-
-    # .p.append(BeautifulSoup(,'html.parser'))
     #no verification of safety has been done for submission before passing it to bag_of_words_paragraph
 
     prediction = best_predictor(submission, abv, style)[0]
@@ -83,7 +80,6 @@ def build_results_html(submission,abv,style):
     predict_line.append(soup.new_tag('strong'))
     #no verification of safety has been done for submission before passing it to best_predictor
     predict_line.strong.append(str(round(prediction,1)))
-
 
     contribution=soup.new_tag('p')
     contribution['align']='center'
@@ -114,12 +110,10 @@ def build_results_html(submission,abv,style):
     gradient.div.div.append(left_label)
     gradient.div.div.append(right_label)
 
-
     gradient.div.append(soup.new_tag('img'))
     gradient.div.img['id']='gradient_img'
     gradient.div.img['src']='../static/gradient.png'
     gradient.div.img['alt']='gradient legend'
-
 
     soup.div.div.append(para)
     soup.div.div.append(predict_line)
@@ -172,5 +166,3 @@ def build_bitterness_tables():
     total_table.div.div.append(nonbitter_cell)
 
     return total_table.prettify()
-
-
