@@ -115,7 +115,8 @@ def build_results_html(submission,abv,style):
     gradient.div.div.append(right_label)
 
 
-    gradient.div.append(soup.new_tag('gradient'))
+    gradient.div.append(soup.new_tag('img'))
+    gradient.div.img['id']='gradient_img'
     gradient.div.img['src']='../static/gradient.png'
     gradient.div.img['alt']='gradient legend'
 
