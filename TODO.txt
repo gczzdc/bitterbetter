@@ -1,5 +1,4 @@
 LOCAL CACHE:
-save common styles in a json file instead of hard coding them
 save word dic in a json file 
 build feature_coef_dic statically or dynamically from fully fitted regressor
 oops---update from old ridge bigram model to ensemble model discussed in about page
@@ -9,7 +8,3 @@ try word2vec
 
 BACKEND EVENTUAL
 overtune hyperparameters for two built-in models
-
-WISHLIST:
-rename css classes to be functional instead of layout-based
-move css out of html document
