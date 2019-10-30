@@ -38,8 +38,7 @@ def get_regressor(filename):
 
 
 def get_strongest_and_weakest(regressor_file=regressor_file, cutoffs=(-16.25,23)):
-    with open(regressor_file,'rb') as f:
-        regressor = pickle.load(f)
+    regressor=get_regressor(regressor_file)
     features = regressor.named_steps['preprocessing'].transformers_[0][1].named_steps['vectorizer'].get_feature_names()
     coefs = regressor.named_steps['estimator'].coef_
     weight_dic = {features[i]:coefs[i] for i in range(len(features))}
