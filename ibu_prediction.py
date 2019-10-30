@@ -14,6 +14,7 @@ from custom_transformers import NumberDestroyer
 feature_coef_file = 'weights.json'
 regressor_file = 'regressor.pickle'
 no_style_regressor_file = 'no_style_regressor.pickle'
+ensemble_regressor_file = 'ensemble_regressor.pickle'
 
 
 def strength_dic(feature_coef_file=feature_coef_file):
@@ -24,11 +25,10 @@ def strength_dic(feature_coef_file=feature_coef_file):
 
 def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
     if style == 'not specified':
-        with open(no_style_regressor_file,'rb') as f:
-            fitted_no_style_regressor = pickle.load(f)
-        return fitted_no_style_regressor.predict(pd.DataFrame([{'style': style, 'abv': abv,'text': text},]))
-    with open(regressor_file,'rb') as f:
-        fitted_regressor = pickle.load(f)
+        filename = no_style_regressor_file
+    else:
+        filename = ensemble_regressor_file
+    fitted_regressor = get_regressor(filename)
     return fitted_regressor.predict(pd.DataFrame([{'style': style, 'abv': abv,'text': text },]))
 
 def get_regressor(filename):
