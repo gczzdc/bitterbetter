@@ -31,6 +31,10 @@ def best_predictor(text, abv=5.5, style='Pale Ale - American / APA'):
         fitted_regressor = pickle.load(f)
     return fitted_regressor.predict(pd.DataFrame([{'style': style, 'abv': abv,'text': text },]))
 
+def get_regressor(filename):
+    with open(filename,'rb') as f:
+        regressor = pickle.load(f)
+    return regressor
 
 
 def get_strongest_and_weakest(regressor_file=regressor_file, cutoffs=(-16.25,23)):
