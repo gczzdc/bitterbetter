@@ -14,7 +14,7 @@ from custom_transformers import NumberDestroyer
 feature_coef_file = 'weights.json'
 regressor_file = 'regressor.pickle'
 no_style_regressor_file = 'no_style_regressor.pickle'
-ensemble_regressor_file = 'ensemble_regressor.pickle'
+ensemble_regressor_file = 'full_ensemble_regressor_final.pickle'
 
 
 def strength_dic(feature_coef_file=feature_coef_file):
